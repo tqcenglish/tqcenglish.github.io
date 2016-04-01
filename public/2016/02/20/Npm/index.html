@@ -1,0 +1,714 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="npm," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Npm 使用软件
+supervisor 监控代码修改，自动重启 node.js
+[pm2] 对应用进行发布，监控。
+[node-inspector] 调试
+hubot
+
+文章
+发布node.js项目
+五款 Slack 开源替代品
+
+#NPM了解NPM大致功能。
+开始NPM是什么？NPM让JS代码容易分享和复用，对于你分享的代码非常容易保持更新。
+安装Node.js和更新npmNode.js的安装可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Npm使用以及相关软件">
+<meta property="og:url" content="http://yoursite.com/2016/02/20/Npm/index.html">
+<meta property="og:site_name" content="羚羊挂角">
+<meta property="og:description" content="Npm 使用软件
+supervisor 监控代码修改，自动重启 node.js
+[pm2] 对应用进行发布，监控。
+[node-inspector] 调试
+hubot
+
+文章
+发布node.js项目
+五款 Slack 开源替代品
+
+#NPM了解NPM大致功能。
+开始NPM是什么？NPM让JS代码容易分享和复用，对于你分享的代码非常容易保持更新。
+安装Node.js和更新npmNode.js的安装可">
+<meta property="og:updated_time" content="2016-03-04T14:44:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Npm使用以及相关软件">
+<meta name="twitter:description" content="Npm 使用软件
+supervisor 监控代码修改，自动重启 node.js
+[pm2] 对应用进行发布，监控。
+[node-inspector] 调试
+hubot
+
+文章
+发布node.js项目
+五款 Slack 开源替代品
+
+#NPM了解NPM大致功能。
+开始NPM是什么？NPM让JS代码容易分享和复用，对于你分享的代码非常容易保持更新。
+安装Node.js和更新npmNode.js的安装可">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Npm使用以及相关软件 | 羚羊挂角 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">羚羊挂角</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">无迹可寻</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Npm使用以及相关软件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-20T01:00:33+08:00" content="2016-02-20">
+              2016-02-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Npm-使用"><a href="#Npm-使用" class="headerlink" title="Npm 使用"></a>Npm 使用</h1><h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><ul>
+<li><a href="https://github.com/Supervisor/supervisor" target="_blank" rel="external">supervisor</a> 监控代码修改，自动重启 node.js</li>
+<li>[pm2] 对应用进行发布，监控。</li>
+<li>[node-inspector] 调试</li>
+<li><a href="https://github.com/github/hubot" target="_blank" rel="external">hubot</a></li>
+</ul>
+<h1 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h1><ul>
+<li><a href="https://github.com/i5ting/node-deploy-practice" target="_blank" rel="external">发布node.js项目</a></li>
+<li><a href="http://www.oschina.net/question/2012764_2141029" target="_blank" rel="external">五款 Slack 开源替代品</a></li>
+</ul>
+<p>#<a href="https://www.npmjs.com/" target="_blank" rel="external">NPM</a><br>了解NPM大致功能。</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="NPM是什么？"><a href="#NPM是什么？" class="headerlink" title="NPM是什么？"></a>NPM是什么？</h3><p>NPM让JS代码容易分享和复用，对于你分享的代码非常容易保持更新。</p>
+<h3 id="安装Node-js和更新npm"><a href="#安装Node-js和更新npm" class="headerlink" title="安装Node.js和更新npm"></a>安装Node.js和更新npm</h3><p>Node.js的安装可以通过<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>或<a href="https://github.com/nodesource/distributions" target="_blank" rel="external">Linux 分发</a>安装。<br>＊使用nvm＊<br>npm 要求 node 版本大于0.10.32</p>
+<h3 id="更新-npm"><a href="#更新-npm" class="headerlink" title="更新 npm"></a>更新 npm</h3><p>node的安装同时包含了npm， 如果需要最新版本的npm通过<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install npm -g</span><br></pre></td></tr></table></figure></p>
+<h3 id="手动安装-npm"><a href="#手动安装-npm" class="headerlink" title="手动安装 npm"></a>手动安装 npm</h3><h2 id="修复npm安装权限"><a href="#修复npm安装权限" class="headerlink" title="修复npm安装权限"></a>修复npm安装权限</h2><p>安装全局包过程出现<strong>EACCES</strong>说明你没有向npm安装全局包和命令的文件路径的写权限。通过两种方式可以修复这个问题：</p>
+<ol>
+<li>改变npm默认安装目录权限。</li>
+<li>改变npm默认安装目录到其它目录。</li>
+</ol>
+<p><a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="external">更多查看</a></p>
+<h2 id="npm安装局部包"><a href="#npm安装局部包" class="headerlink" title="npm安装局部包"></a>npm安装局部包</h2><p>npm 安装包有两种方式:局部，全局。<br>通过require的方式引入局部包，命令行工具使用全局包。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>以上命令会在当前目录创建一个<strong>node_modules</strong>目录(如果不存在)，然后下载包到这个目录。<br>通过ls 或　dir 命令查看是否成功下。</p>
+<p>若未指定版本将下载最新版本。否则通过版本规则下载。<br><a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally" target="_blank" rel="external">查看更多</a></p>
+<h2 id="使用-package-json"><a href="#使用-package-json" class="headerlink" title="使用 package.json"></a>使用 package.json</h2><p>通过创建package.json手动管理局部包。<br>package.json 必须包含的内容</p>
+<ul>
+<li>‘name’</li>
+<li>‘version’</li>
+</ul>
+<p>###创建package.json<br><a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="external">查看更多</a></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag">#npm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/20/Python/" rel="next" title="Python">
+                <i class="fa fa-chevron-left"></i> Python
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/20/Raspbeery/" rel="prev" title="raspberry">
+                raspberry <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="tqcenglish" />
+          <p class="site-author-name" itemprop="name">tqcenglish</p>
+          <p class="site-description motion-element" itemprop="description">博客还是要继续的，万一有用呢。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Npm-使用"><span class="nav-number">1.</span> <span class="nav-text">Npm 使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件"><span class="nav-number">2.</span> <span class="nav-text">软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文章"><span class="nav-number">3.</span> <span class="nav-text">文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">3.1.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NPM是什么？"><span class="nav-number">3.1.1.</span> <span class="nav-text">NPM是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js和更新npm"><span class="nav-number">3.1.2.</span> <span class="nav-text">安装Node.js和更新npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-npm"><span class="nav-number">3.1.3.</span> <span class="nav-text">更新 npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动安装-npm"><span class="nav-number">3.1.4.</span> <span class="nav-text">手动安装 npm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复npm安装权限"><span class="nav-number">3.2.</span> <span class="nav-text">修复npm安装权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm安装局部包"><span class="nav-number">3.3.</span> <span class="nav-text">npm安装局部包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-package-json"><span class="nav-number">3.4.</span> <span class="nav-text">使用 package.json</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tqcenglish</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
