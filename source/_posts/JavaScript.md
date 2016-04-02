@@ -33,44 +33,6 @@ brew upgrade
 或
 brew upgrade wget
 
-
-<div class="dataTable_wrapper">
-                        <table datatable="ng" class="table table-striped table-bordered table-hover"
-                               id="dataTables-example">
-                            <thead>
-                            <tr>
-                                <th>客户名</th>
-                                <th>坐席名</th>
-                                <th>呼入/呼出</th>
-                                <th>留言时长</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!--
-                            <tr class="odd gradeX" ng-repeat="file in value">
-                                <td>{{ file.from }}</td>
-                                <td>{{ dir }}</td>
-                                <td>{{ file.date }}-{{ file.time }}</td>
-                                <td>{{ file.time }}</td>
-                                <td>
-                                    <div class="center btn-group" role="group" aria-label="...">
-                                        <button type="button" class="btn btn-Primary" data-toggle="modal"
-                                                data-target="#edit_recording_modal"
-                                                ng-mouseup="playRecording(dir,file.fileName)">
-                                            Play
-                                        </button>
-                                        <button type="button" class="btn btn-danger"
-                                                ng-mouseup="deleteRecording(dir,file.fileName)">
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            -->
-                            </tbody>
-                        </table>
-                    </div>
 # 对w3school中的javascriipt部分进行理解和笔记
 - document.write("这会覆盖文档")， 文档加载后再调用(例如函数中)这个函数会覆盖所有显示。
 - alert函数用于DEBUG
