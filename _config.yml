@@ -7,7 +7,7 @@ title: 羚羊挂角
 subtitle: 无迹可寻
 description: 博客还是要继续的，万一有用呢。
 author: tqcenglish
-language: zh-Hans
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -65,7 +65,8 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 ##theme: landscape
-theme: hexo-theme-next
+#theme: hexo-theme-next
+theme: utopia 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
