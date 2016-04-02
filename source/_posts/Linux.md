@@ -2,16 +2,14 @@ title: Linux
 date: 2015-12-01 21:34:44
 tags: linux
 ---
-#Linux笔记
 ##Linux命令
-* 2014-5-6(lsof)
-* 2014-5-7(ufw, uname, uptime， hostname, man, last， dmesg， watch)
-###lsof
-LiSt Opened Files
+### lsof
 
+List Opened Files
 *   [lsof常被使用的功能选项](http://www.dutor.net/index.php/2012/03/lsof/)
 *   [wiki](http://en.wikipedia.org/wiki/Lsof)
-###ufw
+### ufw
+
 在redhat中关闭防火墙:
 ```shell
     service iptables stop
@@ -21,24 +19,32 @@ LiSt Opened Files
     sudo ufw enable             开启了防火墙，并在系统启动时自动开启
     sudo ufw default deny       关闭所有外部对本机的访问
 ```
-###uname
+### uname
+
 *	uname --help
 *   	Usage: uname [OPTION]...
 *   	Print certain system information.  With no OPTION, same as -s
-###uptime
+### uptime
+
 显示开机的时间和用户数
-###hostname
+### hostname
+
 设置主机名或NIS
-###man
+### man
+
 man hier 描述文件系统的层次结构
-###last
+### last
+
  last reboot 显示系统reboot历史记录
-###dmesg
+### dmesg
+
  显示开机信息
-###watch
+### watch
+
  监测一个命令的运行结果
 
-###netstat
+### netstat
+
  netstat可以显示传输层协议(TCP/UDP)和ICMP之间的网络包相关信息.
 
 ~~~{.sh}
@@ -49,7 +55,9 @@ man hier 描述文件系统的层次结构
     netstat -tanp | grep -i listen 		查看监听端口的守护进程
 ~~~
 
-###nmap 网络探测和扫描工具
+### nmap
+网络探测和扫描工具
+
 nmap - Network exploration tool and security / port scanner
 
 ~~~{.sh}
@@ -59,7 +67,8 @@ nmap - Network exploration tool and security / port scanner
     nmap	-P0 -O -p 100-200 127.0.0.1 不使用Ping的方式扫描端口100-200,并获取被扫描系统的OS信息.
 ~~~
 
-###traceroute 跟踪到主机的路由
+### traceroute
+跟踪到主机的路由
 
 ~~~{.sh}
 
@@ -67,8 +76,7 @@ nmap - Network exploration tool and security / port scanner
     traceroute -p 25 www.baidu.com		连接25端口
 ~~~
 
-###route (ip route) 查看路由表
-###ARP 地址解析协议
+### ARP 地址解析协议
 arp命令获取MAC层信息,相似命令 ip neigh
 
 ~~~{.sh}
@@ -87,7 +95,7 @@ arping查询子网中IP是否使用, 找到IP设备的MAC地址.
     arping 192.168.1.1  判断192.168.1.1是否使用, -I eth0 指定网口， -f 收到一次即停止, -c 2 查询2次
 ~~~
 
-###Ping
+### Ping
 
 ~~~{.sh}
     ping -a 192.168.1.1 	发出声音
@@ -101,7 +109,7 @@ arping查询子网中IP是否使用, 找到IP设备的MAC地址.
 
 ~~~
 
-###dig
+### dig
 从DNS服务器查询信息
 
 ~~~{.sh}
@@ -114,7 +122,7 @@ arping查询子网中IP是否使用, 找到IP设备的MAC地址.
 
 ~~~
 
-###host
+### host
 host实现DNS反向查询, hostname获取本机主机名信息.
 
 ~~~{.sh}
@@ -122,7 +130,7 @@ host实现DNS反向查询, hostname获取本机主机名信息.
     hostname	主机名全称 -s 简称  -d	域名
 ~~~
 
-###ethtool
+### ethtool
 查询网卡驱动信息和设置网卡
 
 ~~~{.sh}
@@ -131,9 +139,3 @@ host实现DNS反向查询, hostname获取本机主机名信息.
     ethtool -S eth0		查看统计信息
     ethtool -s eth0	speed 100 duplex full autoneg off 关闭自动协商,固定100Mbpx和全双工模式.
 ~~~
-###iwconfig
-###ifconfig
-###ip
-
-
-sudo apt-get install ibus-pinyin
