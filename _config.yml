@@ -65,8 +65,8 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 ##theme: landscape
-#theme: hexo-theme-next
-theme: utopia 
+theme: hexo-theme-next
+#theme: utopia 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
