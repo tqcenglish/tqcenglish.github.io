@@ -3,42 +3,18 @@ date: 2015-12-01 21:34:44
 tags: node.js,
 ---
 
+# JavaScript 部分常识
 # npm ^ ~ 的区别
+
 In the simplest terms, the tilde matches the most recent minor version (the middle number). ~1.2.3 will match all 1.2.x versions but will miss 1.3.0.
 
 The caret, on the other hand, is more relaxed. It will update you to the most recent minor version or patch version (the second or third number). ^1.2.3 will match any 1.x.x release including 1.3.0, but will hold off on 2.0.0.
 
-# brew 用法
-
-brew的使用方法
-Homebrew的可执行命令是brew，其基本使用方法如下（以wget为例）。
-查找软件包
-brew search wget
-安装软件包
-brew install wget
-列出已安装的软件包
-brew list
-删除软件包
-brew remove wget
-查看软件包信息
-brew info wget
-列出软件包的依赖关系
-brew deps wget
-更新brew
-brew update
-列出过时的软件包（已安装但不是最新版本）
-brew outdated
-更新过时的软件包（全部或指定）
-brew upgrade
-或
-brew upgrade wget
+^ 比 ～ 匹配范围更大。
 
 # 对w3school中的javascriipt部分进行理解和笔记
-- document.write("这会覆盖文档")， 文档加载后再调用(例如函数中)这个函数会覆盖所有显示。
+- document.write("这会覆盖文档")， 文档加载后再调用这个函数会覆盖所有显示。
 - alert函数用于DEBUG
-- <script>标签中不需要再添加type='text/javascript'因为现代浏览器和html5都是以javascript为默认脚步语言。
-- <script>放在<head>或<body>中。
-- 必须以字母或$,_开头。大小写敏感。
 - 重新声明不会导致变量的直消失
 
 ``` javascript
@@ -52,8 +28,9 @@ brew upgrade wget
 - 创建对象两种方法. 直接定义或函数定义
 
 ``` javascript
-  - new Object()
-  - fuction object(){
+  new Object(); // 直接定义
+  // 函数定义
+  fuction object(){
     this.
   }
 ```
@@ -71,8 +48,7 @@ brew upgrade wget
 
 ```
 
-#JavaScript资源
-##[es6-in-depth](https://hacks.mozilla.org/category/es6-in-depth/)
+
 1. [ES6简介](http://www.csdn.net/article/2015-06-15/2824955-es6-in-depth-an-introduction)
 2. [迭代器和for-of循环](http://www.csdn.net/article/2015-06-15/2824965-es6-in-depth-iterators-and-the-for-of-loop)
 3. [生成器](http://www.csdn.net/article/2015-06-15/2824967-es6-in-depth-generators)
@@ -83,40 +59,46 @@ brew upgrade wget
 8. [JS的第七种基本类型Symbols](http://www.csdn.net/article/2015-07-09/2825172-es6-in-depth-symbols)
 9. [使用Babel和Broccoli](http://www.csdn.net/article/2015-07-22/2825271-es6-in-depth-babel-and-broccoli)
 10. [更深入了解生成器](http://www.csdn.net/article/2015-08-13/2825452-es6-in-depth-generators-continued)
+11. [es6-in-depth](https://hacks.mozilla.org/category/es6-in-depth/)
 
 for-in语法是被设计来遍历普通的“键值对”对象的，不适合用在数组上
 
-* js 多点触控插件  http://hammerjs.github.io/
 
 
-#关于JavaScript测试汇总
-##[karma](https://github.com/karma-runner/karma)
+#测试
+
+关于JavaScript测试汇总
+## [karma](https://github.com/karma-runner/karma)
+
 * [http://karma-runner.github.io](http://karma-runner.github.io)
-##[mocha](http://mochajs.org/)
+## [mocha](http://mochajs.org/)
+
 * [mocha github](https://github.com/mochajs/mocha)
-##[jasmine](http://jasmine.github.io/)
+## [jasmine](http://jasmine.github.io/)
+
 Jasmine 是一个简易的JS单元测试框架。Jasmine 不依赖于任何浏览器、DOM、或者是任何 JavaScript 而存在。它适用于所有网站、Node.js 项目，或者是任何能够在 JavaScript 上面运行的程序。
 
 * [jasmine github](https://github.com/jasmine/jasmine)
 * [jasmine node](http://jasmine.github.io/edge/node.html)
 * [JavaScript 单元测试框架：Jasmine 初探](http://www.ibm.com/developerworks/cn/web/1404_changwz_jasmine]
 * [JavaScript单元测试框架-Jasmine](http://www.cnblogs.com/zhcncn/p/4330112.html)
-##istanbul
-istanbul 是一个 JavaScript 的代码覆盖率检查工具。
 
-* [istanbul github](https://github.com/gotwarlost/istanbul)
+## [requirejs](http://requirejs.org/)
 
-##[requirejs](http://requirejs.org/)
-##[phantomjs](http://phantomjs.org/)
+## [phantomjs](http://phantomjs.org/)
+
 PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG
 
-##[underscore](https://github.com/jashkenas/underscore)
+## [underscore](https://github.com/jashkenas/underscore)
+
 JavaScript's utility _ belt [http://underscorejs.org](http://underscorejs.org)
 
-##[bower]
+## [bower]
+
 * [bower api](http://bower.io/docs/api/)
 
-##[supertest]()
+## [supertest]()
+
 Super-agent driven library for testing node.js HTTP servers using a fluent API
 
 
@@ -127,7 +109,12 @@ Super-agent driven library for testing node.js HTTP servers using a fluent API
 
 * ［github地址](https://github.com/mozilla/togetherjs)
 
-
 # 相关组织在Github上地址
 
 * [mozila](https://github.com/mozilla)
+
+# 全局安装
+```
+npm install -g mocha
+npm install -g node-inspector
+```

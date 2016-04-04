@@ -12,6 +12,7 @@ tags: kindle
 - 弹出 Kindle 需要完全
 - 直接向多看邮箱发送书籍实现推送. 邮箱格式为 账号_01@iduokan.com。
 
-# 电子书下
+# 电子书下载
 - [2Epub](http://www.2epub.net/) 大部分都是网络小说
 - [gutenberg](http://www.gutenberg.org/) 古登堡
+- gitbook

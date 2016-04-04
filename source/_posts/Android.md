@@ -5,7 +5,7 @@ tags: android
 
 记录 Android 相关开发技巧和开源软件。
 
-# 软件
+## 开源软件库或 app
 * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) Tab滑动布局
 * android-quickform, 提供个人注册时的表单界面。当填入错误信息时，给出提示。
 * android-pulltorefresh，自定义的一个ListView,可以下拉刷新

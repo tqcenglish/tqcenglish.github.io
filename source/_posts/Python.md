@@ -3,8 +3,8 @@ date: 2016-02-20 01:00:33
 tags: python
 ---
 
-#Python
-##virtualenv
+# Python
+## virtualenv
 *	安装
 
 ~~~{.shell}
@@ -36,8 +36,8 @@ tags: python
     sudo apt-get install python-dev
 ~~~
 
-##Python-模板
+## Python-模板
 [Github]https://github.com/onlytiancai/pyempty
-##Python-代码规划
+## Python-代码规范
 [PEP8](http://www.python.org/dev/peps/pep-0008/)
 [Google](http://www.elias.cn/Python/PythonStyleGuide)
