@@ -14,11 +14,11 @@ nvm 用于管理不同版本的 Node.js; 可以查询 Node.js [官网](https://n
 ## [node-inspector](https://github.com/node-inspector/node-inspector)
 使用浏览器调试 Node.js 代码。
 
-## [tmux]()
+## [tmux](https://tmux.github.io/)
 终端会话维持工具。
 
 ## [f.lux](https://justgetflux.com/)
 屏幕色温调节。
 
-## [ngrok]()
+## [ngrok](https://ngrok.com/)
 将内网地址映射到公网。
