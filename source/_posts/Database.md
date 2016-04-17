@@ -1,3 +1,8 @@
+title: 数据库
+date: 2016-04-16
+tags: database
+---
+
 # 数据库
 软件的数据存储离不开数据库。数据库主要有　
 - 关系数据库 mysql,sqlite
