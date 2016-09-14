@@ -5,9 +5,9 @@ date:   2015-05-25
 categories: 语言
 ---
 
-
 ##[Dart](https://www.dartlang.org/)
 Dart is an open-source, scalable programming language, with robust libraries and runtimes, for building web, server, and mobile apps.
+
 ###安装
 * [Mac 安装](https://www.dartlang.org/downloads/mac.html) Dart编辑器大概是Eclipse＋插件.可以选择其他IDE+插件的方式。
 * [WebStorm Dart](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart) WebStorm 中创建Dart项目
@@ -21,8 +21,8 @@ Dart is an open-source, scalable programming language, with robust libraries and
 * [Dart 语言导览](http://dart.lidian.info/wiki/Language_Tour) 内容太老，一些函数已经被库移除。
 * [A Tour of the Dart Language](https://www.dartlang.org/docs/dart-up-and-running/ch02.html)
 
-
-
 ###Mac默认安装路径
 * /usr/local/Cellar/dartium/1.11.0-dev.0.0/Chromium.app
-*  /usr/local/opt/dart/libexec
+* /usr/local/opt/dart/libexec
+
+> 此语言当前还为流行，暂时还是不学了吧。 tqcenglish
