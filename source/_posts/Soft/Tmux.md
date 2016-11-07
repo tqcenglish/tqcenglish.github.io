@@ -40,5 +40,5 @@ Pane操作
 
 ## 链接
 * http://blog.jobbole.com/87584/
-* http://www.linuxidc.com/Linux/2015-07/119843.htm
+* http://www.linuxidc.com/Linux/2015-07/119843.html
 * https://github.com/gpakosz/.tmux //   
