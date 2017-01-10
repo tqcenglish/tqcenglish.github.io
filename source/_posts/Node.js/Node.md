@@ -11,3 +11,12 @@ tags: javascript
 * [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 * [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
 * [nodejs stream 手册](https://github.com/jabez128/stream-handbook)
+
+## Typescript 
+* [中文](https://www.gitbook.com/book/oyyd/typescript-handbook-zh/details)
+
+## ReactiveX
+* [RxJava文档中文版](https://mcxiaoke.gitbooks.io/rxdocs/content/)
+
+## ES6
+* [阮一峰](http://es6.ruanyifeng.com/)
