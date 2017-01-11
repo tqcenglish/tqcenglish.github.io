@@ -11,6 +11,10 @@ tags: javascript
 * [awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 * [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
 * [nodejs stream 手册](https://github.com/jabez128/stream-handbook)
+* [promises-book](https://github.com/azu/promises-book)
+* [art-of-node](https://github.com/maxogden/art-of-node)
+* [pug 中文](https://pugjs.org/zh-cn/api/getting-started.html)
+* [全栈工程师培训材料](https://github.com/ruanyf/jstraining)
 
 ## Typescript 
 * [中文](https://www.gitbook.com/book/oyyd/typescript-handbook-zh/details)
