@@ -12,7 +12,6 @@ golang 有良好的包管理方式，可以很容易引入其他开源项目。 
 
 
 # 书籍 
-* [go 书籍列表](http://www.golangtc.com/books) *都是旧书*
 * [awesome-go](https://github.com/avelino/awesome-go) go 资料汇总
 * [gobyexample 源码](https://github.com/mmcgrana/gobyexample)
 * [Go入门指南](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
