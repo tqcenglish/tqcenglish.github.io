@@ -24,3 +24,9 @@ tags: javascript
 
 ## ES6
 * [阮一峰](http://es6.ruanyifeng.com/)
+
+## 视频教程
+* [javascript30](https://javascript30.com/)
+
+## 软件
+* [jssip-demo](https://github.com/versatica/tryit-jssip) 官方demo
