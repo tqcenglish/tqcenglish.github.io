@@ -1,6 +1,6 @@
-title: 编程基本
+title: Electron
 date: 2016-11-7 
-tags: 基本
+tags: Node.js
 ---
 
 # [Electron](http://electron.atom.io/) 
