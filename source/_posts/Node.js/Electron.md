@@ -1,5 +1,5 @@
 title: Electron
-date: 2016-11-7 
+date: 2016-11-7
 tags: Node.js
 ---
 
