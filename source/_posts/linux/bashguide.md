@@ -1,3 +1,8 @@
+title: Bash 使用
+date: 2016-11-7
+tags: shell
+---
+
 # 目录
 
 1. [基本使用](#1-basic-operations)
