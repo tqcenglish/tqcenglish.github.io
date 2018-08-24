@@ -27,6 +27,8 @@ hexo server
 发布
 
 ``` shell
+hexo clean
+hexo generate
 hexo deploy
 ```
 
