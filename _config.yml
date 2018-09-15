@@ -87,10 +87,6 @@ location: Hong Kong
 email: xx@example.com
 
 avatar: /img/avatar.jpg
-social:
-  github: https://github.com/sabrinaluo
-  weibo: http://weibo.com/206663121
-  linkedin: 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
