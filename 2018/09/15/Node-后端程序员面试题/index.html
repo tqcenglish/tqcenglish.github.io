@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>后端程序员面试题 | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>后端程序员面试题</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年09月15日</time>
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#面试" class='tag'>面试</a>
+
+
+            
+          </div>
+          <p>  后端开发面试题 <a href="https://github.com/monklof/Back-End-Developer-Interview-Questions#general" target="_blank" rel="noopener">Back-End-Developer-Interview-Questions</a> 包含了面试中的常见问题，先做个小抄吧. <a href="http://xargin.com/backend-engineer-interview/" target="_blank" rel="noopener">一个不完全的回答</a></p>
+<h2 id="通用问题"><a href="#通用问题" class="headerlink" title="通用问题"></a>通用问题</h2><ul>
+<li><p>语言设计中空引用(null reference)的存在有什么问题？假设你想要将空引用的概念从你的首选语言中移除，可能导致什么结果？</p>
+<p>在 C, Java, go, Js 中使用 <strong>空引用</strong> 对应会出现 断错误, nullpointer Exception, panic, undefined. 出现这些错误时如果没有对异常处理程序会终止工作。  在不同语言中移除的后果</p>
+<ul>
+<li>Js, 在数据初始化时必须制定数据，缺少灵活性。与其他语言对接时会缺少对应的语义。 例如 web 不传参数可以用 null 表示。</li>
+</ul>
+</li>
+<li><p>封装的重要性体现在哪儿？<br>  通过封装可以屏蔽内部实现细节， 让业务开发逻辑清晰。 通用功能封装为模块可以反复使用。 一个成功的语言必然有对应成功的包管理器， 通过包管理引用封装好的模块即减少工作量又更稳定。</p>
+</li>
+<li><p>不变性(Immutability)是指: (变量的)值只能在创建的时候被设置一次，之后就不能被改变。为什么不变性对写更加安全的代码有帮助<br>  不同语言对不变的变量都有对应的关键字。 不变性可解决并发时的读写冲突问题。</p>
+</li>
+<li><p>在客户端渲染(client-side rendering)和服务端渲染(server-side rendering)之间，你是如何权衡的？<br>web 由原来的 jsp 发展到现在的前后端分离再到 next.js 框架的诞生。 客服端渲染由浏览器实现网页的显示。 主要包含了数据的读取等。 服务端渲染是在一个网页请求后 html 就生成完毕。 客服端渲染对客户的电脑配置要求更高，体验更好。 服务端渲染对 seo 更友好。并且加载更快。但是每一次访问都需要重复加载 js/css.</p>
+</li>
+<li><p>当你在浏览器地址栏输入google.com回车之后都发生了什么?<br>首先通过 dns 获取服务器 ip 地址，然后建立 tcp 连接。 在 tcp 连接上进行 http 协议通信。</p>
+</li>
+</ul>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用问题"><span class="toc-number">1.</span> <span class="toc-text">通用问题</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

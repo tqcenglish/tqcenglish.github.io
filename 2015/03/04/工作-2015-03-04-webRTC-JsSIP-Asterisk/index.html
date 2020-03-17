@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>Asterisk 中的WebRTC | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Asterisk 中的WebRTC</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2015年03月04日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p>通过websocket传输sip通信，浏览器进行语音和视频的编码或解码。实现在web界面中进行音频和视频通信。<a href="http://www.webrtc.org/" target="_blank" rel="noopener">webrtc</a>Asterisk中已集成Webrtc。</p>
+<p>##Sip协议库</p>
+<p>由于浏览器本身没有实行sip协议, 需要通过js实现。下面是基于js实现的sip协议栈.</p>
+<ul>
+<li><a href="https://code.google.com/p/sipml5/" target="_blank" rel="noopener">sipml5</a> doubango 团队实现的Html5 Web拨号应用.</li>
+<li><a href="http://jssip.net/" target="_blank" rel="noopener">JsSIP</a></li>
+<li><a href="http://sipjs.com/" target="_blank" rel="noopener">sipjs</a>是JsSIP的分支，实现了更多的特性. <a href="http://sipjs.com/guides/full-demo-app/" target="_blank" rel="noopener">Demo App</a></li>
+</ul>
+<p>###sipml5</p>
+<ul>
+<li><a href="http://sipml5.org/index.html" target="_blank" rel="noopener">项目主页</a></li>
+<li><a href="http://www.sipml5.org/docgen/index.html" target="_blank" rel="noopener">编程指导</a></li>
+<li><a href="http://sipml5.org/call.htm?svn=222" target="_blank" rel="noopener">在线测试</a>需要在高级设置中填写ws地址。</li>
+</ul>
+<p>###JsSIP</p>
+<ul>
+<li><a href="https://github.com/versatica/JsSIP" target="_blank" rel="noopener">github地址</a></li>
+<li><a href="http://tryit.jssip.net/" target="_blank" rel="noopener">在线测试</a>需要本地pbx具有公网ip.也可以选择随机提供的帐号进行测试。</li>
+<li><a href="https://github.com/opentelecoms-org/jssip-tryit-web-mirror" target="_blank" rel="noopener">jssip-tryit-web-mirror</a>是<a href="http://tryit.jssip.net/" target="_blank" rel="noopener">在线测试</a>的源码映射地址。</li>
+</ul>
+<p>##安装<br>安装大于11版本的<a href="https://wiki.asterisk.org/wiki/display/AST/Installing+Asterisk" target="_blank" rel="noopener">Asterisk</a>。</p>
+<ul>
+<li>下载<a href="https://github.com/opentelecoms-org/jssip-tryit-web-mirror" target="_blank" rel="noopener">jssip-tryit-web-mirror</a>。直接打开或放在tomcat或pbx中都可以。</li>
+</ul>
+<p>##问题汇总<br>问题描述和解决方法</p>
+<p>###注册失败<br>404错误, WS URI添加后缀  /ws。可以通过</p>
+<pre><code>CLI&gt; http show status
+</code></pre><p>查看ws是否开启。</p>
+<h3 id="Rejecting-secure-audio"><a href="#Rejecting-secure-audio" class="headerlink" title="Rejecting secure audio"></a>Rejecting secure audio</h3><p>拨打电话立即挂断，后台输出如下</p>
+<p>若出现</p>
+<pre><code>[Feb 26 13:56:36] WARNING[11996][C-00000003]:
+chan_sip.c:10508 process_sdp: Rejecting secure audio stream without encryption details:
+audio 51935 RTP/SAVPF 111 103 104 9 0 8 106 105 13 126
+</code></pre><p>需要sip.conf中配置(需要生成对应的文件)</p>
+<pre><code>dtlsenable=yes ; Tell Asterisk to enable DTLS for this peer
+dtlsverify=no ; Tell Asterisk to not verify your DTLS certs
+dtlscertfile=/etc/asterisk/keys/asterisk.pem ; Tell Asterisk where your DTLS cert file is
+dtlsprivatekey=/etc/asterisk/keys/asterisk.pem ; Tell Asterisk where your DTLS private key is
+dtlssetup=actpass ; Tell Asterisk to use actpass SDP parameter when setting up DTLS
+</code></pre><p>若出现</p>
+<pre><code>[Feb 26 15:10:33] WARNING[1768][C-00000024]:
+ chan_sip.c:10512 process_sdp: Rejecting secure video stream without encryption details:
+ video 46409 RTP/SAVPF 100 116 117 96
+</code></pre><p>需要在在sip.conf中添加</p>
+<pre><code>videosupport=yes
+</code></pre><h3 id="bad-media-description"><a href="#bad-media-description" class="headerlink" title="bad media description"></a>bad media description</h3><p>拨打后接听立即挂断,不能听见播放的声音。js后台显示</p>
+<pre><code>Failed to parse audio codecs correctly
+</code></pre><p><a href="https://groups.google.com/forum/#!topic/sip_js/sqexozWaCL8" target="_blank" rel="noopener">https://groups.google.com/forum/#!topic/sip_js/sqexozWaCL8</a></p>
+<p>设置</p>
+<pre><code>force_avp=yes ; Force Asterisk to use avp. Introduced in Asterisk 11.11
+icesupport=yes ; Tell Asterisk to use ICE for this peer
+</code></pre><p>###通话过程没有声音<br><a href="http://forums.asterisk.org/viewtopic.php?f=1&amp;t=92119" target="_blank" rel="noopener">http://forums.asterisk.org/viewtopic.php?f=1&amp;t=92119</a><br> 编码冲突</p>
+<p>###WebRtc Error<br>不能接听，后台显示</p>
+<pre><code>ERROR:RTCPeerConnection setLocalDescription() | error: +6ms Failed to set local answer sdp: Failed to push down transport description: Offerer must use actpass value for setup attribute.
+</code></pre><p>点击hold按钮</p>
+<pre><code>ERROR:RTCPeerConnection setRemoteDescription()  error: +10ms Failed to set remote answer sdp: Offer and answer descriptions m-lines are not matching. Rejecting answer.
+</code></pre><p>###自动挂断<br>后台显示</p>
+<pre><code>Got SIP response 500 &quot;JsSIP Internal Error&quot;
+</code></pre><p>###不直接打开index.html<br>将应用放在静态web容器中。tomcat或python -m SimpleHttpServer</p>
+<p>##参考链接</p>
+<ul>
+<li><a href="https://webrtc.freeswitch.org/verto/index.html" target="_blank" rel="noopener">基于sip.js的freewitch在线webrtc Demo</a></li>
+<li><a href="http://www.reddit.com/r/VOIP/comments/2470d8/sipjs_is_a_new_open_source_javascript_sip_stack/" target="_blank" rel="noopener">sip.js是JsSIP分支,基于新的功能需求</a>还不知道功能不同点</li>
+<li><a href="http://blog.csdn.net/yetyongjin/article/details/8563591" target="_blank" rel="noopener">Asterisk 11的Web RTC功能</a></li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+WebRTC+Support" target="_blank" rel="noopener">Asterisk+WebRTC+Support</a></li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/Building+and+Installing+pjproject" target="_blank" rel="noopener">Building+and+Installing+pjproject</a></li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+WebRTC+Support" target="_blank" rel="noopener">Asterisk+WebRTC+Support</a></li>
+<li><a href="https://groups.google.com/forum/#!msg/jssip/kF-xHhmfs0U/F4z8x69MRo0J" target="_blank" rel="noopener">SetRemoteDescription failed: Failed to update session state.</a></li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/WebRTC+tutorial+using+SIPML5" target="_blank" rel="noopener">WebRTC+tutorial+using+SIPML5</a></li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/Interactive+Connectivity+Establishment+%28ICE%29+in+Asterisk" target="_blank" rel="noopener"></a></li>
+<li><a href="http://forums.digium.com/viewtopic.php?f=1&amp;t=90167" target="_blank" rel="noopener"></a></li>
+<li><a href="http://forums.asterisk.org/viewtopic.php?f=1&amp;t=92119" target="_blank" rel="noopener"></a></li>
+</ul>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rejecting-secure-audio"><span class="toc-number">1.</span> <span class="toc-text">Rejecting secure audio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bad-media-description"><span class="toc-number">2.</span> <span class="toc-text">bad media description</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

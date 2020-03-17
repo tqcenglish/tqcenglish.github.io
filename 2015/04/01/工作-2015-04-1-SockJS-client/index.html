@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>SockJS-client | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>SockJS-client</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2015年04月01日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p><a href="https://github.com/sockjs/sockjs-client" target="_blank" rel="noopener">原文链接</a></p>
+<p>SockJS是浏览器端的JavaScript库,作为与WebSocket类似的东西。SockJS提供一个连贯,跨浏览器，可以创建低延迟，全双工，浏览器与Web服务器之间进行跨域通信通道的JavaScript API. SockJS的底层实现首先尝试调用本地WebSockets,如果它失败了就会调用各种浏览器指定的协议并且通过象WebSocket的方式抽象它们。<br>SockJS的目标是工作在任意浏览器和那些不支持WebSocket协议的环境–例如:落后的企业代理。SockJS客户端程序必须需要一个对应的服务端。</p>
+<ul>
+<li>SockJS-node 是一个通过Node.js实现的SockJS 服务端.</li>
+</ul>
+<p>设计理念</p>
+<ul>
+<li>这个API应该尽可能的遵循HTML5 Websockets API。</li>
+<li>所有的传输必须支持跨域连接，建议部署SockJS服务端与你主站在不在一个服务器上。</li>
+<li>对主流的浏览器支持至少一种流传输协议。流传输协议应该支持跨域和Cookies(基于 cookie 的粘性会话).</li>
+<li>轮询传输的方式用于老旧设备或处于限制性代理下的主机。</li>
+<li>建立连接应该尽可能的快和简单。</li>
+<li>不象Flash</li>
+</ul>
+<p>##Getting Started<br>SockJS模仿WebSockets API,并用SockJS 对象取代WebSocket.首先你需要加载SockJS库，例如,放下面代码到你的Html页面</p>
+<pre><code>&lt;script src=&quot;//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>当脚本加载后你可以通过和SockJS服务端建立连接。这是一个简单的例子:</p>
+<pre><code>var sock = new SockJS(&apos;http://mydomain.com/my_prefix&apos;);
+sock.onopen = function() {
+console.log(&apos;open&apos;);
+};
+sock.onmessage = function(e) {
+console.log(&apos;message&apos;, e.data);
+};
+sock.onclose = function() {
+console.log(&apos;close&apos;);
+};
+
+sock.send(&apos;test&apos;);
+sock.close();
+</code></pre><p>##SockJS-client API</p>
+<p>###SockJS class<br>与”WebSocket”API相似，SockJS构造函数需要一个或多个参数。</p>
+<pre><code>var sockjs = new SockJS(url, reserved, options);
+</code></pre><p>其中options是一个包含如下内容的散列.</p>
+<ul>
+<li><p>server (string)<br>string是要追加到URL的实际数据连接。默认为随机4位数。</p>
+</li>
+<li><p>transports (string OR array of strings)<br>有时禁用一些备用的传输是非常有用的。此选项允许您提供可用于SockJS清单传输。默认所有可用传输将被使用。</p>
+</li>
+</ul>
+<p>尽管 ‘SockJS’ 对象尝试去模拟’WebSocket’的功能,但是不可能去支持所有的WebSocket特性。事实上一个重要的限制就是SockJS你不能同时打开多个SockJS连接到一个域。这个限制的原因是由于一个浏览器限制向外连接-通常浏览器不允许同时打开两个以上的向同一个域的连接。单个SockJS会话要求两个连接-一个用于下载，一个用于发送消息。在同一时间打开第二个SockJS会话很可能阻塞，并导致两个会话超时。同一时间打开超过一个的SockJS连接通常是错误的方法。如果你必须实现这个需求，<br>你可以使用多个的子域。使用不同的子域去处理每个SockJS连接。</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

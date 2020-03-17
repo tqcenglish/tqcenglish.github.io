@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>无标题</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020年03月16日</time>
+            
+            
+          </div>
+          <p>#Asterisk Manager Interface(AMI)</p>
+<p>The Asterisk Manager Interface (AMI) is a system monitoring and management inter‐face provided by Asterisk. It allows live monitoring of events that occur in the system,as well as enabling requests for Asterisk to perform some action. The available actions are wide-ranging and include things such as returning status information and origi‐nating new calls. Many interesting applications have been developed on top of Asteriskthat use the AMI as their primary interface to Asterisk.</p>
+<p>Asterisk提供AMI作为系统监控和管理接口. 它能实时监控系统中产生的事件消息, 而且能够向Astreisk发起一些操作请求. 可以实现很多的操作, 例如返回状态消息或发起新的呼叫. 基于Asterisk的AMI作为主要的接口实现出很多有用的程序.</p>
+<p>This chapter also includes documentation on the use of call files. Asterisk’s call files are an easy way to originate a few calls. Once call origination volume increases or your needs become otherwise more complex, you can move on to using the AMI. Details can be found in “Call Files” on page 569.</p>
+<p>这章还包括了对呼叫文档的使用方法. 通过Asterisk的呼叫配置文件可以很容易的发起电话呼叫.AMI可以实现音量增加等复杂操作.在569页可以看见更详细的关于Call Files的内容.</p>
+<p>##Quick Start 快速开始</p>
+<p>This section is for getting your hands dirty with the AMI as quickly as possible. First,put the following configuration in /etc/asterisk/manager.conf:</p>
+<p>本小节让你尽可能快的使用AMI, 首先，将下面的配置文件放到/etc/asterisk/manager.conf文件中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">; Turn on the AMI and ask it to only accept connections from localhost.</span><br><span class="line">;</span><br><span class="line">[general]</span><br><span class="line">enabled = yes</span><br><span class="line">webenabled = yes</span><br><span class="line">bindaddr = 127.0.0.1</span><br><span class="line"></span><br><span class="line">;</span><br><span class="line">; Create an account called &quot;hello&quot;, with a password of &quot;world&quot;</span><br><span class="line">;</span><br><span class="line">[hello]</span><br><span class="line">secret=world</span><br><span class="line">read=all  ; Receive all types of events</span><br><span class="line">write=all ; Allow this user to execute all actions</span><br></pre></td></tr></table></figure>
+<p>Once the AMI configuration is ready, enable the built-in HTTP server by putting the following contents in /etc/asterisk/http.conf:</p>
+<p>当完成AMI的配置后，将下面的内容添加到/etc/asterisk/http.conf从而开启内置的HTTP服务器.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">;</span><br><span class="line">; Enable the built-in HTTP server, and only listen for connections on localhost.</span><br><span class="line">;</span><br><span class="line">[general]</span><br><span class="line">enabled = yes</span><br><span class="line">bindaddr = 127.0.0.1</span><br></pre></td></tr></table></figure>
+<p>###AMI over TCP 基于TCP实现的AMI</p>
+<p>There are multiple ways to connect to the AMI, but a TCP socket is the most common.We will use telnet to demonstrate AMI connectivity. This example shows these steps:</p>
+<p>可以通过多种方式连接到AMI, 但是常见方式是使用TCP套接字实现. 我们将使用Telnet的方式去展示AMI连接.通过下面的步骤实现一个例子.</p>
+<ol>
+<li>Connect to the AMI over a TCP socket on port 5038. //通过基于TCP套接字的5038的端口连接到AMI</li>
+<li>Log in using the Login action. //使用Login实现登录</li>
+<li>Execute the Ping action. //执行Ping</li>
+<li>Log off using the Logoff action. //使用Logoff实现注销</li>
+</ol>
+<p>Here’s how the AMI responds to those actions:</p>
+<p>下面是AMI对于这些操作的响应:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ telnet localhost 5038</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is &apos;^]&apos;.</span><br><span class="line">Asterisk Call Manager/1.1</span><br><span class="line">Action: Login</span><br><span class="line">Username: hello</span><br><span class="line">Secret: world</span><br><span class="line">Response: Success</span><br><span class="line">Message: Authentication accepted</span><br><span class="line"></span><br><span class="line">Action: Ping</span><br><span class="line">Response: Success</span><br><span class="line">Ping: Pong</span><br><span class="line">Timestamp: 1282739190.454046</span><br><span class="line"></span><br><span class="line">Action: Logoff</span><br><span class="line">Response: Goodbye</span><br><span class="line">Message: Thanks for all the fish.</span><br><span class="line">Connection closed by foreign host.</span><br></pre></td></tr></table></figure>
+<p>Once you have this working, you have verified that AMI is accepting connections via a TCP connection.</p>
+<p>当实现上面的步骤, 你就可以确认AMI通过TCP连接建立连接.</p>
+<p>###AMI over HTTP 基于HTTP实现AMI</p>
+<p>It is also possible to use the AMI over HTTP. In this section we will perform the same<br>actions as before, but over HTTP instead of the native TCP interface to the AMI. AMI<br>over HTTP is covered in more detail in “AMI over HTTP” on page 564.</p>
+<p>另外, 可以使用基于HTTP和AMI通信.在本节我们会执行前面相同的操作, 但是通过的方式是HTTP而不是AMI的本地的TCP接口.在564页的”AMI over HTTP”包含了更详细的关于基于HTTP实现的AMI。</p>
+<p>This example demonstrates how to access the AMI over HTTP, log in, execute the Ping action, and log off:</p>
+<p>这个例子会展示如何通过HTTP去访问AMI,并实现登录，执行Ping,注销操作.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ wget &quot;http://localhost:8088/rawman?action=login&amp;username=hello&amp;secret=world&quot; \</span><br><span class="line">&gt; --save-cookies cookies.txt -O -</span><br><span class="line">--2010-08-31 12:34:23--</span><br><span class="line">Resolving localhost... 127.0.0.1</span><br><span class="line">Connecting to localhost|127.0.0.1|:8088... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 55 [text/plain]</span><br><span class="line">Saving to: `STDOUT&apos;</span><br><span class="line">Response: Success</span><br><span class="line">Message: Authentication accepted</span><br><span class="line">2010-08-31 12:34:23 (662 KB/s) - written to stdout [55/55]</span><br><span class="line"></span><br><span class="line">//实验不成功</span><br><span class="line">$ wget &quot;http://localhost:8088/rawman?action=ping&quot; --load-cookies cookies.txt -O -</span><br><span class="line">--2010-08-31 12:34:23--</span><br><span class="line">Resolving localhost... 127.0.0.1</span><br><span class="line"></span><br><span class="line">Connecting to localhost|127.0.0.1|:8088... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 63 [text/plain]</span><br><span class="line">Saving to: `STDOUT&apos;</span><br><span class="line">Response: Success</span><br><span class="line">Ping: Pong</span><br><span class="line">Timestamp: 1283258063.040293</span><br><span class="line">2010-08-31 12:34:23 (775 KB/s) - written to stdout [63/63]</span><br><span class="line"></span><br><span class="line">$ wget &quot;http://localhost:8088/rawman?action=logoff&quot; --load-cookies cookies.txt -O -</span><br><span class="line">--2010-08-31 12:34:23--</span><br><span class="line">Resolving localhost... 127.0.0.1</span><br><span class="line">Connecting to localhost|127.0.0.1|:8088... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 56 [text/plain]</span><br><span class="line">Saving to: `STDOUT&apos;</span><br><span class="line">Response: Goodbye</span><br><span class="line">Message: Thanks for all the fish.</span><br><span class="line">2010-08-31 12:34:23 (696 KB/s) - written to stdout [56/56]</span><br></pre></td></tr></table></figure>
+<p>The HTTP interface to AMI lets you integrate Asterisk call control into a web service.</p>
+<p>AMI的HTTP接口将呼叫控制整合进一个web服务.</p>
+<p>##Configuration 配置</p>
+<p>The section “Quick Start” on page 553 showed a very basic set of configuration files to get you started. However, there are many more options available for the AMI.</p>
+<p>在553的”快速开始”一节展现了一个非常基本的配置文件来帮助开始使用, 然而, AMI包含了更多可用的选项设置.</p>
+<p>###manager.conf</p>
+<p>The main configuration file for the AMI is /etc/asterisk/manager.conf. The [general] section contains options (listed in Table 20-1) that control the overall operation of the AMI. Any other sections in the manager.conf file will define accounts for logging in and using the AMI.</p>
+<p>AMI的主要配置文件是/etc/asterisk/manager.conf. [general]段包含的选项对AMI的整体运行都起作用. </p>
+<p>###http.conf</p>
+<p>As we’ve seen, the Asterisk Manager Interface can be accessed over HTTP as well as TCP. To make that work, a very simple HTTP server is embedded in Asterisk. All of the options relevant to the AMI go in the [general] section of /etc/asterisk/http.conf.</p>
+<p>正象我们看到的这样, AMI可以象使用TCP一样通过HTTP访问. 开启Asterisk上的一个简单的HTTP Server就可以正常工作. 在/etc/asterisk/http.conf中的[general]段可以设置相关选项.</p>
+<p>##Protocol Overview 协议概述</p>
+<p>###Message Encoding 消息编码</p>
+<p>###Events 事件</p>
+<p>###Actions 动作</p>
+<p>##AMI over HTTP</p>
+<p>###Manager events</p>
+<p>##Call Files</p>
+<p>##Example Usage</p>
+<p>Most of this chapter so far discussed the concepts and configuration related to the AMI.<br>This section will provide some example usage.</p>
+<p>这章讨论了很多关于AMI的概念和配置, 本小结将提供一个使用例子.</p>
+<p>###Originating a Call 发起拨号</p>
+<p>The AMI has the Originate manager action that can be used to originate a call. Many of the accepted headers are the same as the options placed in call files. Table 20-6 lists the headers accepted by the Originate action.</p>
+<p>AMI的Originate操作可以用来发起拨号操作. </p>
+<p>The simplest example of using the Originate action is via telnet:<br>下面是一个通过telent执行Originate操作的简单例子.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ telnet localhost 5038</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is &apos;^]&apos;.</span><br><span class="line">Asterisk Call Manager/1.3</span><br><span class="line">Action: Login</span><br><span class="line">Username: hello</span><br><span class="line">Secret: world</span><br><span class="line">Response: Success</span><br><span class="line">Message: Authentication accepted</span><br><span class="line">Action: Originate</span><br><span class="line">Channel: Local/loop@test</span><br><span class="line">Application: Playback</span><br><span class="line">Data: demo-congrats</span><br><span class="line">Response: Success</span><br><span class="line">Message: Originate successfully queued</span><br><span class="line">^]</span><br><span class="line">telnet&gt; quit</span><br><span class="line">Connection closed</span><br></pre></td></tr></table></figure>
+<p>###Redirecting a Call 呼叫转移</p>
+<p>Redirecting (or transferring) a call from the AMI is another feature worth mentioning. The Redirect AMI action can be used to send one or two channels to any other exten‐sion in the Asterisk dialplan. If you need to redirect two channels that are bridged together, do them both at the same time. Otherwise, once one channel has been redi‐rected, the other will be hung up.</p>
+<p>AMI另外一个很有价值的特性是重定向, 在Asterisk的拨号方案中，AMI的重定向可以用于发送一个或两个通道到其他扩展. 当需要将两个通道在一起重定向时，必须在相同的时间执行. 否则，当一个通道被重定向时，另一个就会挂断. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">To redirect a single channel:</span><br><span class="line">	Action: Redirect</span><br><span class="line">	Channel: SIP/myphone-0011223344</span><br><span class="line">	Exten: 1234</span><br><span class="line">	Context: default</span><br><span class="line">	Priority: 1</span><br><span class="line">To redirect two channels:</span><br><span class="line">	Action: Redirect</span><br><span class="line">	Channel: SIP/myphone-0011223344</span><br><span class="line">	Context: default</span><br><span class="line">	Exten: 1234</span><br><span class="line">	Priority: 1</span><br><span class="line">	ExtraChannel: SIP/otherphone-0011223344</span><br><span class="line">	ExtraContext: default</span><br><span class="line">	ExtraExten: 5678</span><br><span class="line">	ExtraPriority: 1</span><br></pre></td></tr></table></figure>
+<p>One fairly common use of the redirect action from an external application is to redirect both parties of a call into a conference bridge. Place this context in your dialplan:</p>
+<p>一个更常用的使用重定向的时候是外部程序将通话双方重定向到一个会议中.将下面的内容添加到你的拨号方案中.</p>
+<pre><code>[confbridge]
+exten =&gt; _X.,1,ConfBridge(${EXTEN})
+</code></pre><p>You could now redirect any two callers into a conference bridge using something like this:</p>
+<p>你可以像下面的方式去重定向任意两个通话的人到会议中.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">Action: Redirect</span><br><span class="line">Channel: SIP/myphone-0011223344</span><br><span class="line">Context: confbridge</span><br><span class="line">Exten: 1234</span><br><span class="line">Priority: 1</span><br><span class="line">ExtraChannel: SIP/otherphone-0011223344</span><br><span class="line">ExtraContext: confbridge</span><br><span class="line">ExtraExten: 1234</span><br><span class="line">ExtraPriority: 1</span><br></pre></td></tr></table></figure>
+<p>Now other callers could join this bridge, or the external application using the AMI could proceed to redirect other channels to this bridge.</p>
+<p>现在其他的通话者就可以加入到这个桥接中， 或者使用扩展程序将其他的通道重定向到这个桥接中.</p>
+<p>###Originating a Call Using Python and StartPy</p>
+<p>To help further demonstrate the use of the Originate action, we have provided a script that uses it. The full script is in Example 20-1.  It can be downloaded from <a href="https://github.com/russellb/amiutils" target="_blank" rel="noopener">https://github.com/russellb/amiutils</a>. To get an idea of the usage of the example application, here is the help output:</p>
+<p>为了帮助更容易的展示如何发起一个操作, 我们提供了一个脚本来实现这个步骤. 完整的脚本在例20-1. 也可以在从<a href="https://github.com/russellb/amiutils" target="_blank" rel="noopener">https://github.com/russellb/amiutils</a>下载. 为了容易使用这个脚本程序， 下面是帮助文档的输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ ./amioriginate.py --help //输出省略</span><br></pre></td></tr></table></figure>
+<p>If you run the utility in debug mode, you can see the raw AMI message exchange. First, here is an example of using the script to originate a call and connect it to an application. The MSG OUT and Line In lines in the output identify the AMI exchange. The MSG OUT lines are showing the AMI action in an internal format to the application instead of the raw AMI format, but you can still see the headers and their values. The Line In lines show the raw TCP response from Asterisk. The output shows:</p>
+<p>如果你在调试模式运行这个脚本, 你会看见AMI交互的原始消息. 首先, 这是一个使用脚本发起呼叫并连接它到一个程序的例子. MSG OUT 和 Line In 在输出的每行中标示AMI信息. MSG OUT 用内部格式去替换了原始AMI的格式显示AMI的操作, 但是你仍然可以得到标题和值的信息. Line In 显示了从Asterisk得到的原始TCP响应信息. 输出显示如下:</p>
+<ol>
+<li>The application requests to log into the AMI.  //    程序请求登录到AMI</li>
+<li>Asterisk responds, accepting the authentication request.  //Asterisk的响应消息, 接受认证请求</li>
+<li>The application sends a request to originate a call.  // 程序请求发起电话呼叫</li>
+<li>Asterisk responds indicating that the origination request has been successfully  //Asterisk响应表明请求成功</li>
+</ol>
+<p>processed. The call will occur asynchronously since the originate request included Async: True . Otherwise, we would not get a response until the outbound call either answers or fails for some reason.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ ./amioriginate.py -d -u hello -p world \</span><br><span class="line">&gt; -a playback -D demo-congrats SIP/myphone</span><br><span class="line">DEBUG:AMI:MSG OUT: &#123;&apos;action&apos;: &apos;login&apos;, &apos;username&apos;: &apos;hello&apos;, &apos;secret&apos;: &apos;world&apos;,</span><br><span class="line">&apos;actionid&apos;: &apos;rhel6.3-server-28064728-1&apos;&#125;</span><br><span class="line">DEBUG:AMI:Line In: &apos;Asterisk Call Manager/1.3&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;Response: Success&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;ActionID: rhel6.3-server-28064728-1&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;Message: Authentication accepted&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;&apos;</span><br><span class="line">DEBUG:AMI:MSG OUT: &#123;&apos;application&apos;: &apos;playback&apos;,</span><br><span class="line">&apos;actionid&apos;: &apos;rhel6.3-server-28064728-2&apos;,</span><br><span class="line">&apos;variable&apos;: &apos;&apos;, &apos;async&apos;: &apos;True&apos;, &apos;data&apos;: &apos;demo-congrats&apos;,</span><br><span class="line">&apos;action&apos;: &apos;originate&apos;, &apos;channel&apos;: &apos;SIP/myphone&apos;&#125;</span><br><span class="line">DEBUG:AMI:Line In: &apos;Response: Success&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;ActionID: rhel6.3-server-28064728-2&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;Message: Originate successfully queued&apos;</span><br><span class="line">DEBUG:AMI:Line In: &apos;&apos;</span><br></pre></td></tr></table></figure>
+<p><em>Example 20-1 amioriginate.py //省略</em></p>
+<p>##Development Frameworks</p>
+<p>##CSTA</p>
+<p>##Interesting Applications 有用的应用<br>Many useful applications have been developed that take advantage of the AMI. Here is one example.</p>
+<p>###Flash Operator Panel</p>
+<p>##Conclusion 总结<br>The Asterisk Manager Interface provides an API for monitoring events from an Asterisk system, as well as requesting that Asterisk perform a wide range of actions. An HTTP interface has been provided and a number of frameworks have been developed that<br>make it easier to develop applications. All of this information, as well as the examples we looked at at the end of this chapter, should get you thinking about what new appli‐cations you might be able to build using the Asterisk Manager Interface</p>
+<p>AMI提供了监控Asterisk事件的API， 从而请求Asterisk执行很多的功能操作.通过提供的框架和HTTP接口可以很容易的开发应用. 通过本章的信息和前面的例子，思考基于AMI建立新的应用. </p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

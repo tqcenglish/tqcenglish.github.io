@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>软件 | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>软件</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2016年04月06日</time>
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#soft" class='tag'>soft</a>
+
+
+            
+          </div>
+          <p>一些有用的开源软件和工具。 </p>
+<ul>
+<li>自建服务类型，在自己 vps 上运行。</li>
+<li>工具类型，参考实现二次开发。</li>
+</ul>
+<h1 id="Mailtrain-源码"><a href="#Mailtrain-源码" class="headerlink" title="Mailtrain 源码"></a><a href="https://mailtrain.org/" target="_blank" rel="noopener">Mailtrain</a> <a href="https://github.com/andris9/mailtrain" target="_blank" rel="noopener">源码</a></h1><p>基于 Express 实现群发邮件管理工具。 能上传 csv， 自定义字段。</p>
+<h1 id="cockpit"><a href="#cockpit" class="headerlink" title="cockpit"></a><a href="https://cockpit-project.org/" target="_blank" rel="noopener">cockpit</a></h1><p>Red-hat开源 linux 系统状态监控。 用到的技术 C + react。 界面模块化开发，使用了 red-hat 自己的 ui 框架。</p>
+<h1 id="Caddy-与-nginx-一样，作反向代理服务器-配置更简单"><a href="#Caddy-与-nginx-一样，作反向代理服务器-配置更简单" class="headerlink" title="Caddy 与 nginx 一样，作反向代理服务器. 配置更简单."></a>Caddy 与 nginx 一样，作反向代理服务器. 配置更简单.</h1><h2 id="不同请求域名代理到内部不同端口"><a href="#不同请求域名代理到内部不同端口" class="headerlink" title="不同请求域名代理到内部不同端口."></a>不同请求域名代理到内部不同端口.</h2><p>一台 vps 需要运行多个 web 服务，都想使用 80/443 端口，如何处理 ? 使用 caddy 代理所有请求， 然后通过访问的二级域名判断需要代理到内部的具体端口. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rewrite &#123;</span><br><span class="line">   if_op or</span><br><span class="line">   if &#123;&gt;Referer&#125; has /deluge</span><br><span class="line">   if &#123;&gt;Referer&#125; has mydomain.com/themes/css/</span><br><span class="line">   if &#123;&gt;Referer&#125; has mydomain.com/css/</span><br><span class="line">   to /deluge/&#123;path&#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">proxy /deluge http://127.0.0.1:8112 &#123;</span><br><span class="line">   without /deluge   </span><br><span class="line">      transparent</span><br><span class="line">      header_upstream X-Forwarded-Host &#123;host&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://forum.deluge-torrent.org/viewtopic.php?t=54135" target="_blank" rel="noopener">Reverse Proxy with Caddy Server</a></p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mailtrain-源码"><span class="toc-number">1.</span> <span class="toc-text">Mailtrain 源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cockpit"><span class="toc-number">2.</span> <span class="toc-text">cockpit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Caddy-与-nginx-一样，作反向代理服务器-配置更简单"><span class="toc-number">3.</span> <span class="toc-text">Caddy 与 nginx 一样，作反向代理服务器. 配置更简单.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不同请求域名代理到内部不同端口"><span class="toc-number">3.1.</span> <span class="toc-text">不同请求域名代理到内部不同端口.</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

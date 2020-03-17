@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>无标题</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020年03月16日</time>
+            
+            
+          </div>
+          <h2 id="X30接口概述"><a href="#X30接口概述" class="headerlink" title="X30接口概述"></a>X30接口概述</h2><p>订阅主题：</p>
+<pre><code>operation   ------ 基本操作（包含操作：播放 停止）
+response    ------ 对operation指令的相应
+update      ------ 更新配置 (包含操作：更新分机号 更新配置文件)
+event       ------ 事件上传 (比如x30的初始状态）
+</code></pre><h3 id="operation"><a href="#operation" class="headerlink" title="operation"></a>operation</h3><h4 id="播放音乐"><a href="#播放音乐" class="headerlink" title="播放音乐"></a>播放音乐</h4><p>参数：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "id": "892348jk234234",  -------字符串：任务id，也是和响应使用的id</span><br><span class="line">  "action": "play",  -------字符串：动作名称：播放</span><br><span class="line">  "data": &#123;</span><br><span class="line">    "volume": 50,  -------整型 范围：1-100  音量大小</span><br><span class="line">    "url": "http://xxxx" -------- 字符串：音源网络地址</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="停止播放音乐"><a href="#停止播放音乐" class="headerlink" title="停止播放音乐"></a>停止播放音乐</h4><p>参数：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "id": "892348jk234235",  -------字符串：任务id，也是和响应使用的id</span><br><span class="line">  "action": "stop",  -------字符串：动作名称：停止播放</span><br><span class="line">  "data": &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><h4 id="播放音乐响应"><a href="#播放音乐响应" class="headerlink" title="播放音乐响应"></a>播放音乐响应</h4><p>异步响应：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "id": "892348jk234234",  -------字符串：任务id，也是和响应使用的id</span><br><span class="line">    "action": "play",  -------字符串：动作名称：播放</span><br><span class="line">    "status": "playing" ------字符串：状态：playing(已完成) idle(空闲) error(错误)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="停止播放音乐响应"><a href="#停止播放音乐响应" class="headerlink" title="停止播放音乐响应"></a>停止播放音乐响应</h4><p>异步响应：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "id": "892348jk234235",  -------字符串：任务id，也是和响应使用的id</span><br><span class="line">    "action": "stop",  -------字符串：动作名称：停止播放</span><br><span class="line">    "status": "idle" ------字符串：状态：playing(已完成) idle(空闲) error(错误)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="更新分机号响应"><a href="#更新分机号响应" class="headerlink" title="更新分机号响应"></a>更新分机号响应</h4><p>异步响应：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "id": "892348jk234236",  -------字符串：任务id，也是和响应使用的id</span><br><span class="line">    "action": "set-exten",  -------字符串：动作名称：停止播放</span><br><span class="line">    "status": "completed" ------字符串：状态：completed(已完成) error(错误)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><h5 id="更新分机号"><a href="#更新分机号" class="headerlink" title="更新分机号"></a>更新分机号</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "id": "892348jk234236",  -------字符串：任务id，也是和响应使用的id</span><br><span class="line">  "action": "set-exten",  -------字符串：动作名称：设置分机号</span><br><span class="line">  "data": &#123;</span><br><span class="line">    "host": "192.168.1.100",  -------字符串： sip服务器ip地址</span><br><span class="line">    "exten": "800",  -------字符串：分机号码</span><br><span class="line">    "password": "Ab123456"  ------字符串：分机密码</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="event"><a href="#event" class="headerlink" title="event"></a>event</h3><h4 id="初始化报告x30的各状态"><a href="#初始化报告x30的各状态" class="headerlink" title="初始化报告x30的各状态"></a>初始化报告x30的各状态</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "action": "init",  ------字符串  数据类型：响应</span><br><span class="line">  "data": &#123;</span><br><span class="line">    "solf-volume": 75,  -------整型：系统软件音量</span><br><span class="line">    "hard-volume": 100,  -------整型：系统硬件音量</span><br><span class="line">    "exten": "800", ------字符串：系统当前分机号</span><br><span class="line">    "status": "idle",  --------字符串：系统当前的播放状态 playing(正在播放) idle(停止) error(错误)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#X30接口概述"><span class="toc-number">1.</span> <span class="toc-text">X30接口概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#operation"><span class="toc-number">1.1.</span> <span class="toc-text">operation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#播放音乐"><span class="toc-number">1.1.1.</span> <span class="toc-text">播放音乐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止播放音乐"><span class="toc-number">1.1.2.</span> <span class="toc-text">停止播放音乐</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#response"><span class="toc-number">1.2.</span> <span class="toc-text">response</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#播放音乐响应"><span class="toc-number">1.2.1.</span> <span class="toc-text">播放音乐响应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止播放音乐响应"><span class="toc-number">1.2.2.</span> <span class="toc-text">停止播放音乐响应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新分机号响应"><span class="toc-number">1.2.3.</span> <span class="toc-text">更新分机号响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#update"><span class="toc-number">1.3.</span> <span class="toc-text">update</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#更新分机号"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">更新分机号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#event"><span class="toc-number">1.4.</span> <span class="toc-text">event</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化报告x30的各状态"><span class="toc-number">1.4.1.</span> <span class="toc-text">初始化报告x30的各状态</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

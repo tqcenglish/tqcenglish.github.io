@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>代码评审 | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>代码评审</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2016年07月26日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件/">软件</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p>代码评审是指对代码进行审核，当符合要求后才合并到主分支中。</p>
+<p>代码评审需要借助评审工具完成，对评审进行管理。</p>
+<h1 id="git-appraise"><a href="#git-appraise" class="headerlink" title="git-appraise"></a><a href="https://github.com/google/git-appraise" target="_blank" rel="noopener">git-appraise</a></h1><p>Go 实现的开源软件，与 Git 集成在一起。</p>
+<p>在特性分支中执行 <code>git-appraise request</code> 将与主分支的差异作为评审的内容。 然后通过 <code>git-appraise comment</code> 对代码进行评价。 若接受代码修改通过 <code>git-appraise accept</code>. 最后要在特性分支中进行 <code>git-appraise submit</code>.</p>
+<p><code>git-appraise list</code> 可以查看所有提交<br><code>git-appraise show id</code> 查看详细。</p>
+<h2 id="git-appraise-web"><a href="#git-appraise-web" class="headerlink" title="git-appraise-web"></a><a href="https://github.com/google/git-appraise-web" target="_blank" rel="noopener">git-appraise-web</a></h2><blockquote>
+<p>一个简单的只读 web 查看界面, 功能十分简单。</p>
+</blockquote>
+<p><strong><br>  代码通过 <code>go get</code> 而不是 <code>git clone</code> 方式安装。 需要加载 <code>Angualrjs.js</code> 所有需要翻墙。
+</strong></p>
+<h1 id="gerrit"><a href="#gerrit" class="headerlink" title="gerrit"></a><a href="https://www.gerritcodereview.com/" target="_blank" rel="noopener">gerrit</a></h1><p>基于 JAVA 实现的开源软件。</p>
+<ul>
+<li><a href="https://gerrit-review.googlesource.com/Documentation/install-quick.html" target="_blank" rel="noopener">快速安装</a></li>
+</ul>
+<h1 id="crucible"><a href="#crucible" class="headerlink" title="crucible"></a><a href="https://www.atlassian.com/software/crucible" target="_blank" rel="noopener">crucible</a></h1><p>收费软件。</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_tools_for_code_review" target="_blank" rel="noopener">wiki</a></li>
+</ul>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-appraise"><span class="toc-number">1.</span> <span class="toc-text">git-appraise</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-appraise-web"><span class="toc-number">1.1.</span> <span class="toc-text">git-appraise-web</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gerrit"><span class="toc-number">2.</span> <span class="toc-text">gerrit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#crucible"><span class="toc-number">3.</span> <span class="toc-text">crucible</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#引用"><span class="toc-number">4.</span> <span class="toc-text">引用</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

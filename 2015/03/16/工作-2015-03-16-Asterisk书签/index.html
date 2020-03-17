@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>Asterisk书签 | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Asterisk书签</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2015年03月16日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p>Asterisk书签包含相关博客和官方wiki.</p>
+<p>##官方wiki</p>
+<ul>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/Secure+Calling+Tutorial" target="_blank" rel="noopener">Secure+Calling+Tutorial</a>This tutorial makes use of SRTP and TLS. SRTP support was added in Asterisk 1.8, TLS was added in 1.6.</li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+WebRTC+Support" target="_blank" rel="noopener">Asterisk+WebRTC+Support</a>Asterisk对WebRTC的支持。</li>
+<li><a href="https://wiki.asterisk.org/wiki/display/AST/WebRTC+tutorial+using+SIPML5" target="_blank" rel="noopener">WebRTC+tutorial+using+SIPML5</a>基于SIMPL5的Asterisk WebRTC配置。</li>
+</ul>
+<p>##源码分析</p>
+<ul>
+<li><a href="http://doxygen.asterisk.org/asterisk1.0/utils_8c.html" target="_blank" rel="noopener">utils.c File Reference</a></li>
+<li><a href="http://doxygen.asterisk.org/trunk/pages.html" target="_blank" rel="noopener">Related Pages</a></li>
+</ul>
+<p>##常见错误<br>安装ekiga后,不能注册帐号</p>
+<pre><code>sudo netstat -plntu | grep &quot;5060&quot;
+</code></pre><p> 发现占用了Asterisk的5060端口,需要<a href="http://blog-on-linux.blogspot.sg/2009/02/change-port-of-ekiga.html" target="_blank" rel="noopener">修改ekiga 监听端口</a></p>
+<p>##相关技术</p>
+<ul>
+<li><a href="https://github.com/seanbright/asterisk-opus" target="_blank" rel="noopener">github asterisk-opus</a>对源码进行opus和vp8支持.</li>
+<li><a href="http://cgi-c.sourceforge.net/" target="_blank" rel="noopener">A CGI Library for C</a></li>
+<li><a href="http://www.rowetel.com/blog/?page_id=455" target="_blank" rel="noopener">Mini Asterisk GUI</a></li>
+<li><a href="http://nodejsasterisk.blogspot.sg/" target="_blank" rel="noopener">Voicer - voice speed dial for #asterisk</a></li>
+<li><a href="http://www.sharetechnote.com/html/IMS_SIP_SS.html" target="_blank" rel="noopener">IMS_SIP_SS</a></li>
+</ul>
+<p>#Asterisk视频会议<br>Asterisk仅仅实现数据转发功能。 在Meetme功能实现中, Asterisk请求Meetme实现多路声音混合功能在接受混合后的数据。同理，视频会议的流程如下</p>
+<pre><code>client--&gt;Asterisk--&gt;mcu
+encoding--&gt; video processor--&gt; decoding
+</code></pre><p>##链接<br><a href="http://lihanwuhan.blog.163.com/blog/static/514325562008597425617/" target="_blank" rel="noopener">关于Asterisk视频会议</a></p>
+<p>##名词<br><a href="http://zh.wikipedia.org/wiki/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8" target="_blank" rel="noopener">多路复用(Multiplexing，又稱「多工」)</a>:表示在一个信道上传输多路信号或数据流的过程和技术.<br><a href="http://en.wikipedia.org/wiki/Multipoint_Control_Unit" target="_blank" rel="noopener">MCU</a>: 混合视频.</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

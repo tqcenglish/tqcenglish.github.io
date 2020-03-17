@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>Sails Policies | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Sails Policies</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2015年05月25日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/翻译/">翻译</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p><a href="http://www.sailsjs.org/#!/documentation/concepts/Policies" target="_blank" rel="noopener">原文链接</a></p>
+<h2 id="提要"><a href="#提要" class="headerlink" title="提要"></a>提要</h2><p>Policies在Sails中作为授权和访问控制的通用工具.它让你可以去在粒度基本上控制允许或拒绝访问你的控制器。例如，如果你建立了一个Dropbox,在让用户上传文件到文件夹前，你需要检查用户是否认证，是否有写文件的权限，最后你要去检查用户上传内容的文件夹是否有足够的空间。</p>
+<p>Policies可以用于任何方面:HTTP基本认证,第三方程序单点登录， OAuth 2.0, 自定义授权/认证方案。</p>
+<p><strong>Policies只能用于控制器而不能用于视图。如果你在routes.js配置文件中定义了一个路由去直接指向视图，将没有Policies会起作用。为了确信policies是可用的，你可以定义一个控制器去显示试图并在路由中配置action</strong></p>
+<h2 id="实现你的第一个Policy"><a href="#实现你的第一个Policy" class="headerlink" title="实现你的第一个Policy"></a>实现你的第一个Policy</h2><p>Policies是定义在你的Sails程序的api/policies文件夹下的文件。每一个policy文件应该包含一个函数。</p>
+<p>当运行时，policies是在控制器前运行的中间件功能。你可以将中间件串联在一起使用,这也是被设计为这样使用。每一个中间件应该只完成一个功能。</p>
+<p>例如，象上面提到的可写权限策略。</p>
+<p>  //policies/canWrite.js<br>  module.exports = function canWrite (req, res, next){<br>  var targetFolderId = req.param(‘id’);<br>  var userId = req.session.user.id;<br>  Permission<br>  .findOneByFolderId(targetFolderId)<br>  .exec( function foundPermission (err, permission) {<br>    //Unexpected error occurred – skip to the app’s default error(500) handler<br>    if(err) return next(err);<br>    //No permission exists linking this user to this folder. Maybe they got removed from it? Maybe they never had permission in the first place? Who cares?<br>    if(!permission) return res.redirect(‘/notAllowed’);<br>    //Ok, so a permission was found. Let’s be sure it’s a  “write”<br>    if(permission.type !== ‘write’) return res.redirect(‘/notAllowed’);<br>    //If we made it all the awy down here, looks like everything’s ok. so we’ll let the user through<br>    next();<br>    });<br>  };</p>
+<p>##用Policies去保护控制器<br>Sails有内建一个ACL(访问控制表)位于config/policies.js文件。这个文件用于映射policies到你的控制器。</p>
+<p>这个文件是声明，它描述了你的应用权限应该是什么，并不描述它是如何实现。这使得新开发者更容易的去理解发生了什么事。另外让你的应用更灵活因为你的要求是不可避免的不断改变。</p>
+<p>你的config/policies.js文件应该导出一个Javascript对象，它的键名是控制器的名称(或’*’用于全部的policies).它的值是对象映射的操作名称和一个或多个policies.看下面获取更详细的说明和例子说明。</p>
+<p>###应用一个policy到指定的控制器操作</p>
+<p>  {<br>    ProfileController:{<br>      //Apply the ‘isLoggedIn’ policy to the ‘edit’ action of ‘ProfileController’<br>      edit:’isLoggedIn’<br>      //Apply the ‘isAdmin’ And ‘isLoggedIn’ policies , in the order, to the ‘create’ action<br>      create:[isAdmin’, ‘isLoggedIn’]<br>    }</p>
+<p>  }</p>
+<p>###应用一个policy到整个控制器</p>
+<p>  {<br>    ProfileController:{<br>    //Apply ‘isLogged’ in by default to all actions that are Not specied below<br>    ‘*’: ‘isLoggedIn’,<br>    //If an action is explicitly listed, its policy list will override the default list<br>    //So, we have to list ‘isLoggedIn’ again for the ‘edit’ action if we want it to be applied<br>    edit: [‘isAdmin’, ‘isLoggedIn’]<br>  }</p>
+<p><strong>默认的策略映射不会”cascade”或”trickle down”, 对于控制器的操作指定的策略映射会覆盖默认的映射</strong></p>
+<blockquote>
+<p>这是一般 Sails 关于权限控制的官方文档翻译。 后面再说吧。</p>
+</blockquote>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#提要"><span class="toc-number">1.</span> <span class="toc-text">提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现你的第一个Policy"><span class="toc-number">2.</span> <span class="toc-text">实现你的第一个Policy</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

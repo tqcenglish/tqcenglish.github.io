@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="伐木掎矣，析薪杝矣">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="https://assets-cdn.github.com/favicon.ico">
+  
+    
+  <title>Some SoftPhone | 羚羊挂角</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47275396-1');
+  </script>
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>羚羊挂角</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Some SoftPhone</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2015年03月19日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p>#软电话对比</p>
+<p>##sipdroid<br><a href="https://code.google.com/p/sipdroid/" target="_blank" rel="noopener">https://code.google.com/p/sipdroid/</a></p>
+<p>###架构</p>
+<p>sip协议栈使用JAVA实现，音频Codec使用skype的silk实现。NAT传输支持stun server.</p>
+<p>###优缺点：</p>
+<p>NAT方面只支持STUN，无ICE框架，如需要完全实现P2P视频通话需要实现符合ICE标准的客户端,音频方面没看到AEC等技术，视频方面还不是太完善，目前只看到调用的是系统自带的MediaRecorder，并没有自己的第三方音视频编解码库。</p>
+<p>###实际测试：</p>
+<p>基于sipdroid架构的话，我们要做的工作会比较多，（ICE支持，添加回音消除，NetEQ等gips音频技术，添加视频硬件编解码codec.).</p>
+<p>##imsdroid</p>
+<p>###架构：</p>
+<p>基于doubango(Doubango 是一个基于3GPP IMS/RCS 并能用于嵌入式和桌面系统的开源框架。该框架使用ANSCI-C编写，具有很好的可移植性。并且已经被设计成非常轻便且能有效的工作在低内存和低处理能力的嵌入式系统上。苹果系统上的idoubs功能就是基于此框架编写) .音视频编码格式大部分都支持（H264(video)，VP8(video)，iLBC(audio),PCMA,PCMU,G722,G729）。NAT支持ICE（stun+turn）</p>
+<p>###优缺点<br>imsdroid目前来说还是算比较全面的，包括音视频编解码，传输（RTSP，ICE），音频处理技术等都有涉猎。doubango使用了webrtc的AEC技术，但是其调用webrtc部分没有开源，是用的编译出来的webrtc的库。如果要改善音频的话不太方便，Demo的音频效果可以，视频效果还是不太理想。</p>
+<p>###效果实测</p>
+<p>测试环境：公司局域网内两台机器互通，服务器走外网sip2sip，音频质量可以，但是AEC打开了还是有点回音（应该可以修复）。视频马赛克比较严重，延迟1秒左右。</p>
+<p>##csipsimple</p>
+<p>###架构</p>
+<p>sip协议栈用的是pjsip,音视频编解码用到的第三方库有ffmpeg（video）,silk(audio),webrtc.默认使用了webrtc的回声算法。支持ICE协议。</p>
+<p>###优缺点：<br>csipsimple架构比较清晰，sip协议由C实现，java通过JNI调用，SIP协议这一块会比较高效。其VOIP各个功能也都具备，包括NAT传输，音视频编解码。并且该项目跟进新技术比较快，官方活跃程度也比较高。如果做二次开发可以推荐这个。</p>
+<p>###实测效果<br>测试环境：公司局域网内两台机器互通，服务器走外网sip2sip，音频质量可以，无明显回音，视频需要下插件，马赛克比imsdroid更严重。</p>
+<p>##Linphone<br>这个是老牌的sip，支持平台广泛 windows, mac,ios,android,linux，技术会比较成熟。但是据玩过的同事说linphone在Android上的bug有点多，由于其代码实在庞大，所以我暂时放弃考虑Linphone.不过如果谁有跨平台的需要，可以考虑Linphone或者imsdroid和下面的webrtc.好像现在开源软件都跨平台了。</p>
+<p>##webrtc<br> 架构imsdroid,csipsimple,linphone都想法设法调用webrtc的音频技术，本人也测试过Android端的webrtc内网视频通话，效果比较满意。但是要把webrtc做成一个移动端的IM软件的话还有一些路要走，不过webrtc基本技术都已经有了，包括p2p传输，音视频codec,音频处理技术。不过其因为目前仅支持VP8的视频编码格式（QQ也是）想做高清视频通话的要注意了。VP8在移动端的硬件编解码支持的平台没几个（RK可以支持VP8硬件编解码）。不过webrtc代码里看到可以使用外部codec,这个还是有希望调到H264的。</p>
+<p>##总结：</p>
+<ul>
+<li>sipdroid比较轻量级，着重基于java开发（音频codec除外），由于其音视频编码以及P2P传输这一块略显不足，不太好做定制化开发和优化。</li>
+<li>imsdroid,遗憾就是直接调用webrtc的库，而最近webrtc更新的比较频繁，开发比较活跃。如果要自己在imsdroid上更新webrtc担心兼容性问题，希望imsdroid可以直接把需要的webrtc相关源码包进去。</li>
+<li>csipsimple的话，都是围绕pjsip的，webrtc等都是以pjsip插件形式扩充的,类似gstreamer.</li>
+<li>webrtc如果有技术实力的开发公司个人还是觉得可以选择这个来做，一个是google的原因，一个是其视频通话相关关键技术都比较成熟的原因.</li>
+</ul>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2020 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/tqcenglish/hexo-theme-clean" target="_blank">clean</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
