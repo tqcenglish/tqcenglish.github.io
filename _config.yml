@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: clean
+theme: cactus
 
 # Google Analytics
 ga: # GA code UA-XXXXXXXX-X
