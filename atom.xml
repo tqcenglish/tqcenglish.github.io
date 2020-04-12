@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tqcenglish.github.io/"/>
-  <updated>2020-04-12T14:54:15.620Z</updated>
+  <updated>2020-03-17T12:16:37.002Z</updated>
   <id>https://tqcenglish.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>句子</title>
-    <link href="https://tqcenglish.github.io/2020/04/11/Project-juzi/"/>
-    <id>https://tqcenglish.github.io/2020/04/11/Project-juzi/</id>
-    <published>2020-04-10T16:00:00.000Z</published>
-    <updated>2020-04-12T14:54:15.620Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h1><p>中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.<br><img src="https://raw.githubusercontent.com/tqcenglish/tqcenglish.github.io/write/source/_posts/Project/imgs/juzi.png" alt="句子APP"> 是一个无需网络的简单 app. 希望能在未来的生活中激励你，陪伴你。<br>如果有任何疑问请联系 <a href="mailto:tqcenglish@gmail.com" target="_blank" rel="noopener">tqcenglish@gmail.com</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;句子&quot;&gt;&lt;a href=&quot;#句子&quot; class=&quot;headerlink&quot; title=&quot;句子&quot;&gt;&lt;/a&gt;句子&lt;/h1&gt;&lt;p&gt;中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.&lt;br&gt;&lt;img src=&quot;https://raw.githubusercont
-      
-    
-    </summary>
-    
-    
-      <category term="项目" scheme="https://tqcenglish.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-  </entry>
   
   <entry>
     <title>JavaScript</title>
@@ -245,30 +222,6 @@
   </entry>
   
   <entry>
-    <title>HTTP</title>
-    <link href="https://tqcenglish.github.io/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/"/>
-    <id>https://tqcenglish.github.io/2018/09/25/其他-http-HTTP/</id>
-    <published>2018-09-24T16:00:00.000Z</published>
-    <updated>2020-03-16T13:20:21.035Z</updated>
-    
-    <content type="html"><![CDATA[<p>http 协议基于 TCP, 是当前的互联网基石。</p><p><a href="https://github.com/jasonGeng88/blog/blob/master/201705/https.md" target="_blank" rel="noopener">基于此文</a>的理解图</p><p><img src="HTTP.png" alt="mindNode"></p><p><a href="https://legacy.gitbook.com/book/bagder/http2-explained/details" target="_blank" rel="noopener">http2 介绍</a><br><a href="https://github.com/bagder/http3-explained" target="_blank" rel="noopener">http3 介绍</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;http 协议基于 TCP, 是当前的互联网基石。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/jasonGeng88/blog/blob/master/201705/https.md&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="http" scheme="https://tqcenglish.github.io/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
     <title>REST</title>
     <link href="https://tqcenglish.github.io/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/"/>
     <id>https://tqcenglish.github.io/2018/09/25/其他-http-REST/</id>
@@ -289,6 +242,30 @@
     
     
       <category term="rest" scheme="https://tqcenglish.github.io/tags/rest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP</title>
+    <link href="https://tqcenglish.github.io/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/"/>
+    <id>https://tqcenglish.github.io/2018/09/25/其他-http-HTTP/</id>
+    <published>2018-09-24T16:00:00.000Z</published>
+    <updated>2020-03-16T13:20:21.035Z</updated>
+    
+    <content type="html"><![CDATA[<p>http 协议基于 TCP, 是当前的互联网基石。</p><p><a href="https://github.com/jasonGeng88/blog/blob/master/201705/https.md" target="_blank" rel="noopener">基于此文</a>的理解图</p><p><img src="HTTP.png" alt="mindNode"></p><p><a href="https://legacy.gitbook.com/book/bagder/http2-explained/details" target="_blank" rel="noopener">http2 介绍</a><br><a href="https://github.com/bagder/http3-explained" target="_blank" rel="noopener">http3 介绍</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;http 协议基于 TCP, 是当前的互联网基石。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jasonGeng88/blog/blob/master/201705/https.md&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="http" scheme="https://tqcenglish.github.io/tags/http/"/>
     
   </entry>
   
@@ -388,6 +365,30 @@
   </entry>
   
   <entry>
+    <title>Mongodb</title>
+    <link href="https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/"/>
+    <id>https://tqcenglish.github.io/2018/09/15/数据库-Mongodb/</id>
+    <published>2018-09-14T16:00:00.000Z</published>
+    <updated>2020-03-16T13:20:21.073Z</updated>
+    
+    <content type="html"><![CDATA[<p>mongo是一个面向文档的数据库，它集合了nosql和sql数据库两方面的特性。所有实体都是在首次使用时创建。</p><p>没有严格的事务特性，但是它保证任何一次数据变更都是原子性的。也没有固定的数据模型,mongo以javascript作为命令行执行引擎，所以利用shell进行复杂的计算和查询时会相当的慢。</p><p>mongo本身支持集群和数据分片, mongo是c++实现的，支持windows mac linux等主流操作系统. 性能优越，速度快</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;mongo是一个面向文档的数据库，它集合了nosql和sql数据库两方面的特性。所有实体都是在首次使用时创建。&lt;/p&gt;
+&lt;p&gt;没有严格的事务特性，但是它保证任何一次数据变更都是原子性的。也没有固定的数据模型,mongo以javascript作为命令行执行引擎，所以利用she
+      
+    
+    </summary>
+    
+    
+      <category term="database" scheme="https://tqcenglish.github.io/tags/database/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mysql</title>
     <link href="https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/"/>
     <id>https://tqcenglish.github.io/2018/09/15/数据库-Mysql/</id>
@@ -409,30 +410,6 @@
     
     
       <category term="sql" scheme="https://tqcenglish.github.io/tags/sql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mongodb</title>
-    <link href="https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/"/>
-    <id>https://tqcenglish.github.io/2018/09/15/数据库-Mongodb/</id>
-    <published>2018-09-14T16:00:00.000Z</published>
-    <updated>2020-03-16T13:20:21.073Z</updated>
-    
-    <content type="html"><![CDATA[<p>mongo是一个面向文档的数据库，它集合了nosql和sql数据库两方面的特性。所有实体都是在首次使用时创建。</p><p>没有严格的事务特性，但是它保证任何一次数据变更都是原子性的。也没有固定的数据模型,mongo以javascript作为命令行执行引擎，所以利用shell进行复杂的计算和查询时会相当的慢。</p><p>mongo本身支持集群和数据分片, mongo是c++实现的，支持windows mac linux等主流操作系统. 性能优越，速度快</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;mongo是一个面向文档的数据库，它集合了nosql和sql数据库两方面的特性。所有实体都是在首次使用时创建。&lt;/p&gt;
-&lt;p&gt;没有严格的事务特性，但是它保证任何一次数据变更都是原子性的。也没有固定的数据模型,mongo以javascript作为命令行执行引擎，所以利用she
-      
-    
-    </summary>
-    
-    
-      <category term="database" scheme="https://tqcenglish.github.io/tags/database/"/>
     
   </entry>
   
@@ -480,6 +457,31 @@
     
     
       <category term="proxy" scheme="https://tqcenglish.github.io/tags/proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebRTC dial</title>
+    <link href="https://tqcenglish.github.io/2018/09/11/%E5%85%B6%E4%BB%96-WebRTC-Dial/"/>
+    <id>https://tqcenglish.github.io/2018/09/11/其他-WebRTC-Dial/</id>
+    <published>2018-09-10T16:00:00.000Z</published>
+    <updated>2020-03-16T13:20:21.029Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="https://github.com/vialer/vialer-js" target="_blank" rel="noopener">vialer-js 源码</a></li><li><a href="https://vialer-js.io" target="_blank" rel="noopener">vialer-js 文档</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vialer/vialer-js&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;vialer-js 源码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vialer-js.i
+      
+    
+    </summary>
+    
+    
+      <category term="webRTC" scheme="https://tqcenglish.github.io/tags/webRTC/"/>
     
   </entry>
   

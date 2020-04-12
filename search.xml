@@ -3,21 +3,6 @@
   
     
     <entry>
-      <title>句子</title>
-      <link href="/2020/04/11/Project-juzi/"/>
-      <url>/2020/04/11/Project-juzi/</url>
-      <content type="html"><![CDATA[<h1 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h1><p>中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.<br><img src="https://raw.githubusercontent.com/tqcenglish/tqcenglish.github.io/write/source/_posts/Project/imgs/juzi.png" alt="句子APP"> 是一个无需网络的简单 app. 希望能在未来的生活中激励你，陪伴你。<br>如果有任何疑问请联系 <a href="mailto:tqcenglish@gmail.com" target="_blank" rel="noopener">tqcenglish@gmail.com</a></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> 项目 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>JavaScript</title>
       <link href="/2020/03/16/Node-JavaScript/"/>
       <url>/2020/03/16/Node-JavaScript/</url>
@@ -111,21 +96,6 @@
     </entry>
     
     <entry>
-      <title>HTTP</title>
-      <link href="/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/"/>
-      <url>/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/</url>
-      <content type="html"><![CDATA[<p>http 协议基于 TCP, 是当前的互联网基石。</p><p><a href="https://github.com/jasonGeng88/blog/blob/master/201705/https.md" target="_blank" rel="noopener">基于此文</a>的理解图</p><p><img src="HTTP.png" alt="mindNode"></p><p><a href="https://legacy.gitbook.com/book/bagder/http2-explained/details" target="_blank" rel="noopener">http2 介绍</a><br><a href="https://github.com/bagder/http3-explained" target="_blank" rel="noopener">http3 介绍</a></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> http </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>REST</title>
       <link href="/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/"/>
       <url>/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/</url>
@@ -135,6 +105,21 @@
         <tags>
             
             <tag> rest </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>HTTP</title>
+      <link href="/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/"/>
+      <url>/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/</url>
+      <content type="html"><![CDATA[<p>http 协议基于 TCP, 是当前的互联网基石。</p><p><a href="https://github.com/jasonGeng88/blog/blob/master/201705/https.md" target="_blank" rel="noopener">基于此文</a>的理解图</p><p><img src="HTTP.png" alt="mindNode"></p><p><a href="https://legacy.gitbook.com/book/bagder/http2-explained/details" target="_blank" rel="noopener">http2 介绍</a><br><a href="https://github.com/bagder/http3-explained" target="_blank" rel="noopener">http3 介绍</a></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> http </tag>
             
         </tags>
       
@@ -201,21 +186,6 @@
     </entry>
     
     <entry>
-      <title>Mysql</title>
-      <link href="/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/"/>
-      <url>/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/</url>
-      <content type="html"><![CDATA[<p>Mysql 是免费的关系数据库。</p><h2 id="数据库使用的最佳方式"><a href="#数据库使用的最佳方式" class="headerlink" title="数据库使用的最佳方式"></a>数据库使用的最佳方式</h2><ul><li>尽量使用预处理.</li><li>多条记录操作使用批处理.</li><li>不使用外连接</li><li>使用 not exist 替换 not in</li><li>or 不能太多</li><li>更新操作放在事务最后</li><li>少用临时表</li><li>distinct 导致不必要的排序</li></ul><h2 id="数据库优化方式"><a href="#数据库优化方式" class="headerlink" title="数据库优化方式"></a>数据库优化方式</h2><ul><li>show status</li><li>explain</li><li>show profile</li><li>trace</li></ul>]]></content>
-      
-      
-        <tags>
-            
-            <tag> sql </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Mongodb</title>
       <link href="/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/"/>
       <url>/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/</url>
@@ -225,6 +195,21 @@
         <tags>
             
             <tag> database </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Mysql</title>
+      <link href="/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/"/>
+      <url>/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/</url>
+      <content type="html"><![CDATA[<p>Mysql 是免费的关系数据库。</p><h2 id="数据库使用的最佳方式"><a href="#数据库使用的最佳方式" class="headerlink" title="数据库使用的最佳方式"></a>数据库使用的最佳方式</h2><ul><li>尽量使用预处理.</li><li>多条记录操作使用批处理.</li><li>不使用外连接</li><li>使用 not exist 替换 not in</li><li>or 不能太多</li><li>更新操作放在事务最后</li><li>少用临时表</li><li>distinct 导致不必要的排序</li></ul><h2 id="数据库优化方式"><a href="#数据库优化方式" class="headerlink" title="数据库优化方式"></a>数据库优化方式</h2><ul><li>show status</li><li>explain</li><li>show profile</li><li>trace</li></ul>]]></content>
+      
+      
+        <tags>
+            
+            <tag> sql </tag>
             
         </tags>
       
@@ -558,21 +543,6 @@
     </entry>
     
     <entry>
-      <title>Bash 使用</title>
-      <link href="/2016/11/07/Vue-bashguide/"/>
-      <url>/2016/11/07/Vue-bashguide/</url>
-      <content type="html"><![CDATA[<p>linux 命令可以提高软件的开发与部署，记录常用命令。</p><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ol><li><a href="#1-basic-operations">基本使用</a></li><li>[Shell 编程]</li><li>[技巧]</li><li>[调试]</li></ol><h1 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1. 基本使用"></a>1. 基本使用</h1><h2 id="a-export"><a href="#a-export" class="headerlink" title="a. export"></a>a. <code>export</code></h2><p>显示所有的环境变量配置。如果需要获取指定环境变量使用 <code>echo $VARIABLE_NAME</code>.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span></span><br></pre></td></tr></table></figure><p>例子:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span></span><br><span class="line">AWS_HOME = /Users/adnanadnan/.aws</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$AWS_HOME</span></span><br><span class="line">/Users/adnanadnan/.aws</span><br></pre></td></tr></table></figure><h2 id="b-whatis"><a href="#b-whatis" class="headerlink" title="b. whatis"></a>b. <code>whatis</code></h2><p>whatis 用于显示用户命令, 系统调用, 库函数和数据手册相关的描述。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whatis name</span><br></pre></td></tr></table></figure><p>例子:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ whatis bash</span><br><span class="line">bash(1)                  - GNU Bourne-Again SHell</span><br><span class="line">bashbug(1)               - report a bug <span class="keyword">in</span> bash</span><br></pre></td></tr></table></figure><h2 id="c-whereis"><a href="#c-whereis" class="headerlink" title="c. whereis"></a>c. <code>whereis</code></h2><h2 id="d-which"><a href="#d-which" class="headerlink" title="d. which"></a>d. <code>which</code></h2><h2 id="e-clear"><a href="#e-clear" class="headerlink" title="e. clear"></a>e. <code>clear</code></h2><p>清楚当前窗口显示</p><h2 id="1-1-文件操作"><a href="#1-1-文件操作" class="headerlink" title="1.1. 文件操作"></a>1.1. 文件操作</h2><p><a href="https://github.com/Idnan/bash-guide" target="_blank" rel="noopener">bash-guide</a><br><a href="https://raw.githubusercontent.com/Idnan/bash-guide/master/README.md" target="_blank" rel="noopener">bash-guide-raw</a></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> shell </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>程序员</title>
       <link href="/2016/11/07/%E5%85%B6%E4%BB%96-%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
       <url>/2016/11/07/%E5%85%B6%E4%BB%96-%E7%A8%8B%E5%BA%8F%E5%91%98/</url>
@@ -582,6 +552,21 @@
         <tags>
             
             <tag> 程序员 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Bash 使用</title>
+      <link href="/2016/11/07/Vue-bashguide/"/>
+      <url>/2016/11/07/Vue-bashguide/</url>
+      <content type="html"><![CDATA[<p>linux 命令可以提高软件的开发与部署，记录常用命令。</p><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ol><li><a href="#1-basic-operations">基本使用</a></li><li>[Shell 编程]</li><li>[技巧]</li><li>[调试]</li></ol><h1 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1. 基本使用"></a>1. 基本使用</h1><h2 id="a-export"><a href="#a-export" class="headerlink" title="a. export"></a>a. <code>export</code></h2><p>显示所有的环境变量配置。如果需要获取指定环境变量使用 <code>echo $VARIABLE_NAME</code>.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span></span><br></pre></td></tr></table></figure><p>例子:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span></span><br><span class="line">AWS_HOME = /Users/adnanadnan/.aws</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$AWS_HOME</span></span><br><span class="line">/Users/adnanadnan/.aws</span><br></pre></td></tr></table></figure><h2 id="b-whatis"><a href="#b-whatis" class="headerlink" title="b. whatis"></a>b. <code>whatis</code></h2><p>whatis 用于显示用户命令, 系统调用, 库函数和数据手册相关的描述。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whatis name</span><br></pre></td></tr></table></figure><p>例子:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ whatis bash</span><br><span class="line">bash(1)                  - GNU Bourne-Again SHell</span><br><span class="line">bashbug(1)               - report a bug <span class="keyword">in</span> bash</span><br></pre></td></tr></table></figure><h2 id="c-whereis"><a href="#c-whereis" class="headerlink" title="c. whereis"></a>c. <code>whereis</code></h2><h2 id="d-which"><a href="#d-which" class="headerlink" title="d. which"></a>d. <code>which</code></h2><h2 id="e-clear"><a href="#e-clear" class="headerlink" title="e. clear"></a>e. <code>clear</code></h2><p>清楚当前窗口显示</p><h2 id="1-1-文件操作"><a href="#1-1-文件操作" class="headerlink" title="1.1. 文件操作"></a>1.1. 文件操作</h2><p><a href="https://github.com/Idnan/bash-guide" target="_blank" rel="noopener">bash-guide</a><br><a href="https://raw.githubusercontent.com/Idnan/bash-guide/master/README.md" target="_blank" rel="noopener">bash-guide-raw</a></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
             
         </tags>
       
@@ -732,21 +717,6 @@
     </entry>
     
     <entry>
-      <title>CSS</title>
-      <link href="/2015/12/02/Vue-CSS/"/>
-      <url>/2015/12/02/Vue-CSS/</url>
-      <content type="html"><![CDATA[<p>记录 CSS 相关的小知识点。</p><h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><p>em 用于宽度时指字符个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max-width: 36em; // 每行显示最大字符数</span><br></pre></td></tr></table></figure></p><p>margin 的顺序是 <strong>上右下左</strong>, 若为两位就是 <strong>上下与左右</strong></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> web </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>阅读</title>
       <link href="/2015/12/02/%E5%85%B6%E4%BB%96-%E4%B9%A6%E7%B1%8D/"/>
       <url>/2015/12/02/%E5%85%B6%E4%BB%96-%E4%B9%A6%E7%B1%8D/</url>
@@ -756,6 +726,21 @@
         <tags>
             
             <tag> book </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>CSS</title>
+      <link href="/2015/12/02/Vue-CSS/"/>
+      <url>/2015/12/02/Vue-CSS/</url>
+      <content type="html"><![CDATA[<p>记录 CSS 相关的小知识点。</p><h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><p>em 用于宽度时指字符个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max-width: 36em; // 每行显示最大字符数</span><br></pre></td></tr></table></figure></p><p>margin 的顺序是 <strong>上右下左</strong>, 若为两位就是 <strong>上下与左右</strong></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
             
         </tags>
       

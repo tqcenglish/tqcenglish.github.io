@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tqcenglish.github.io/2020/04/11/Project-juzi/</loc>
-    
-    <lastmod>2020-04-12T14:54:15.620Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tqcenglish.github.io/2020/03/16/%E5%85%B6%E4%BB%96-%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%81/</loc>
     
     <lastmod>2020-03-17T12:19:47.160Z</lastmod>
@@ -170,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/</loc>
+    <loc>https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/</loc>
     
     <lastmod>2020-03-16T13:20:21.073Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/</loc>
+    <loc>https://tqcenglish.github.io/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/</loc>
     
     <lastmod>2020-03-16T13:20:21.073Z</lastmod>
     
@@ -212,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://tqcenglish.github.io/2016/04/03/Golang-%E5%B9%B6%E5%8F%91/</loc>
+    <loc>https://tqcenglish.github.io/2016/12/14/Golang-Web/</loc>
     
     <lastmod>2020-03-16T13:20:21.063Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tqcenglish.github.io/2016/12/14/Golang-Web/</loc>
+    <loc>https://tqcenglish.github.io/2016/04/03/Golang-%E5%B9%B6%E5%8F%91/</loc>
     
     <lastmod>2020-03-16T13:20:21.063Z</lastmod>
     
