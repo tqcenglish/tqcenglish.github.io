@@ -6,7 +6,7 @@
       <title>句子</title>
       <link href="/2020/04/11/Project-juzi/"/>
       <url>/2020/04/11/Project-juzi/</url>
-      <content type="html"><![CDATA[<h1 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h1><p>中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.<br><img src="https://github.com/tqcenglish/tqcenglish.github.io/blob/write/source/_posts/Project/imgs/juzi.png" alt="句子APP"> 是一个无需网络的简单 app. 希望能在未来的生活中激励你，陪伴你。<br>如果有任何疑问请联系 <a href="mailto:tqcenglish@gmail.com" target="_blank" rel="noopener">tqcenglish@gmail.com</a></p>]]></content>
+      <content type="html"><![CDATA[<h1 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h1><p>中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.<br><img src="https://raw.githubusercontent.com/tqcenglish/tqcenglish.github.io/write/source/_posts/Project/imgs/juzi.png" alt="句子APP"> 是一个无需网络的简单 app. 希望能在未来的生活中激励你，陪伴你。<br>如果有任何疑问请联系 <a href="mailto:tqcenglish@gmail.com" target="_blank" rel="noopener">tqcenglish@gmail.com</a></p>]]></content>
       
       
         <tags>
@@ -111,21 +111,6 @@
     </entry>
     
     <entry>
-      <title>REST</title>
-      <link href="/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/"/>
-      <url>/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/</url>
-      <content type="html"><![CDATA[<p><a href="https://github.com/jasonGeng88/blog/blob/master/201706/rest-api.md" target="_blank" rel="noopener">REST API URI 设计的七准则</a></p><p> <img src="REST.png" alt="rest"></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> rest </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>HTTP</title>
       <link href="/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/"/>
       <url>/2018/09/25/%E5%85%B6%E4%BB%96-http-HTTP/</url>
@@ -135,6 +120,21 @@
         <tags>
             
             <tag> http </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>REST</title>
+      <link href="/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/"/>
+      <url>/2018/09/25/%E5%85%B6%E4%BB%96-http-REST/</url>
+      <content type="html"><![CDATA[<p><a href="https://github.com/jasonGeng88/blog/blob/master/201706/rest-api.md" target="_blank" rel="noopener">REST API URI 设计的七准则</a></p><p> <img src="REST.png" alt="rest"></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> rest </tag>
             
         </tags>
       
@@ -201,21 +201,6 @@
     </entry>
     
     <entry>
-      <title>Mongodb</title>
-      <link href="/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/"/>
-      <url>/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/</url>
-      <content type="html"><![CDATA[<p>mongo是一个面向文档的数据库，它集合了nosql和sql数据库两方面的特性。所有实体都是在首次使用时创建。</p><p>没有严格的事务特性，但是它保证任何一次数据变更都是原子性的。也没有固定的数据模型,mongo以javascript作为命令行执行引擎，所以利用shell进行复杂的计算和查询时会相当的慢。</p><p>mongo本身支持集群和数据分片, mongo是c++实现的，支持windows mac linux等主流操作系统. 性能优越，速度快</p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> database </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Mysql</title>
       <link href="/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/"/>
       <url>/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mysql/</url>
@@ -225,6 +210,21 @@
         <tags>
             
             <tag> sql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Mongodb</title>
+      <link href="/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/"/>
+      <url>/2018/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93-Mongodb/</url>
+      <content type="html"><![CDATA[<p>mongo是一个面向文档的数据库，它集合了nosql和sql数据库两方面的特性。所有实体都是在首次使用时创建。</p><p>没有严格的事务特性，但是它保证任何一次数据变更都是原子性的。也没有固定的数据模型,mongo以javascript作为命令行执行引擎，所以利用shell进行复杂的计算和查询时会相当的慢。</p><p>mongo本身支持集群和数据分片, mongo是c++实现的，支持windows mac linux等主流操作系统. 性能优越，速度快</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> database </tag>
             
         </tags>
       
@@ -390,21 +390,6 @@
     </entry>
     
     <entry>
-      <title>Web Fastify</title>
-      <link href="/2018/08/25/Node-Fastify/"/>
-      <url>/2018/08/25/Node-Fastify/</url>
-      <content type="html"><![CDATA[<p>Web 框架 或 Node.js Web 框架多如牛毛，开始学习 Node.js 时被 MVC 框架 sails 惊叹。 原来 Web 可以如此简单，计划不用写代码就能完成 CRUD。 但是也被 Waterline 的性能问题折磨得痛苦，反复重构。 </p><h2 id="我了解的-node-js-web-框架"><a href="#我了解的-node-js-web-框架" class="headerlink" title="我了解的 node.js web 框架"></a>我了解的 node.js web 框架</h2><ul><li>egg 阿里开源，基于 koa. 根据内核启动多进程， koa 的增强版.</li><li>express, koa 好像都知道了吧。</li><li>strapi 被它的模块设计折服，用于构建收费插件可以参考。 基于 koa.</li><li>sails 预期中的 mvc, orm 有坑.</li></ul><h2 id="Fastify"><a href="#Fastify" class="headerlink" title="Fastify"></a>Fastify</h2><ul><li><a href="https://github.com/fastify/docs-chinese/blob/master/docs/Getting-Started.md" target="_blank" rel="noopener">中文文档</a></li><li>fastify 在路由, json 序列号等方面优化</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://cnodejs.org/topic/575f61555e870b5a02066aa8" target="_blank" rel="noopener">web 框架讨论</a><br><a href="http://delved.org/What-if-I-told-you-that-HTTP-can-be-fast/#/34" target="_blank" rel="noopener">fastify ppt1</a><br><a href="https://mcollina.github.io/take-your-http-server-to-ludicrous-speed/#1" target="_blank" rel="noopener">fastify ppt2</a></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> javascript Node.js </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>CNode 部署</title>
       <link href="/2018/08/25/Node-CNode/"/>
       <url>/2018/08/25/Node-CNode/</url>
@@ -414,6 +399,21 @@
         <tags>
             
             <tag> Node.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Web Fastify</title>
+      <link href="/2018/08/25/Node-Fastify/"/>
+      <url>/2018/08/25/Node-Fastify/</url>
+      <content type="html"><![CDATA[<p>Web 框架 或 Node.js Web 框架多如牛毛，开始学习 Node.js 时被 MVC 框架 sails 惊叹。 原来 Web 可以如此简单，计划不用写代码就能完成 CRUD。 但是也被 Waterline 的性能问题折磨得痛苦，反复重构。 </p><h2 id="我了解的-node-js-web-框架"><a href="#我了解的-node-js-web-框架" class="headerlink" title="我了解的 node.js web 框架"></a>我了解的 node.js web 框架</h2><ul><li>egg 阿里开源，基于 koa. 根据内核启动多进程， koa 的增强版.</li><li>express, koa 好像都知道了吧。</li><li>strapi 被它的模块设计折服，用于构建收费插件可以参考。 基于 koa.</li><li>sails 预期中的 mvc, orm 有坑.</li></ul><h2 id="Fastify"><a href="#Fastify" class="headerlink" title="Fastify"></a>Fastify</h2><ul><li><a href="https://github.com/fastify/docs-chinese/blob/master/docs/Getting-Started.md" target="_blank" rel="noopener">中文文档</a></li><li>fastify 在路由, json 序列号等方面优化</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://cnodejs.org/topic/575f61555e870b5a02066aa8" target="_blank" rel="noopener">web 框架讨论</a><br><a href="http://delved.org/What-if-I-told-you-that-HTTP-can-be-fast/#/34" target="_blank" rel="noopener">fastify ppt1</a><br><a href="https://mcollina.github.io/take-your-http-server-to-ludicrous-speed/#1" target="_blank" rel="noopener">fastify ppt2</a></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> javascript Node.js </tag>
             
         </tags>
       
