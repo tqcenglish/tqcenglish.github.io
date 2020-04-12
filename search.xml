@@ -6,7 +6,7 @@
       <title>句子</title>
       <link href="/2020/04/11/Project-juzi/"/>
       <url>/2020/04/11/Project-juzi/</url>
-      <content type="html"><![CDATA[<h1 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h1><p>中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.<br><img src="images/juzi.png" alt="句子APP"> 是一个无需网络的简单 app. 希望能在未来的生活中激励你，陪伴你。<br>如果有任何疑问请联系 <a href="mailto:tqcenglish@gmail.com" target="_blank" rel="noopener">tqcenglish@gmail.com</a></p>]]></content>
+      <content type="html"><![CDATA[<h1 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h1><p>中文文化博大精深，在普通的句子中我们能获取的无穷的前进力量.<br><img src="https://github.com/tqcenglish/tqcenglish.github.io/blob/write/source/_posts/Project/imgs/juzi.png" alt="句子APP"> 是一个无需网络的简单 app. 希望能在未来的生活中激励你，陪伴你。<br>如果有任何疑问请联系 <a href="mailto:tqcenglish@gmail.com" target="_blank" rel="noopener">tqcenglish@gmail.com</a></p>]]></content>
       
       
         <tags>
@@ -390,21 +390,6 @@
     </entry>
     
     <entry>
-      <title>CNode 部署</title>
-      <link href="/2018/08/25/Node-CNode/"/>
-      <url>/2018/08/25/Node-CNode/</url>
-      <content type="html"><![CDATA[<p>CNode 是国内基于 node, mongodb, redis, express, ers 技术栈构建的一个论坛程序。 egg-cnode 将 express 替换为 egg.js 框架.</p><h2 id="egg-cnode"><a href="#egg-cnode" class="headerlink" title="egg-cnode"></a><a href="https://github.com/cnodejs/egg-cnode" target="_blank" rel="noopener">egg-cnode</a></h2><p>cnode 论坛的 egg 实现版本， 后端服务由原来的 Express 切换为 Node. 在部署过程中主要安装如下软件。</p><ul><li>redis</li><li>mongoldb</li><li>nvm</li><li>node</li></ul><h2 id="调试模式不发送邮件-多种原因导致"><a href="#调试模式不发送邮件-多种原因导致" class="headerlink" title="调试模式不发送邮件(多种原因导致)"></a>调试模式不发送邮件(多种原因导致)</h2><ul><li>发送邮件被屏蔽</li><li>调试模式下发送邮件直接返回</li><li>163 需要授权码登录</li><li>激活回调地址 config.host 配置</li></ul><p>可以直接修改数据库为激活模式登录</p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> Node.js </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Web Fastify</title>
       <link href="/2018/08/25/Node-Fastify/"/>
       <url>/2018/08/25/Node-Fastify/</url>
@@ -414,6 +399,21 @@
         <tags>
             
             <tag> javascript Node.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>CNode 部署</title>
+      <link href="/2018/08/25/Node-CNode/"/>
+      <url>/2018/08/25/Node-CNode/</url>
+      <content type="html"><![CDATA[<p>CNode 是国内基于 node, mongodb, redis, express, ers 技术栈构建的一个论坛程序。 egg-cnode 将 express 替换为 egg.js 框架.</p><h2 id="egg-cnode"><a href="#egg-cnode" class="headerlink" title="egg-cnode"></a><a href="https://github.com/cnodejs/egg-cnode" target="_blank" rel="noopener">egg-cnode</a></h2><p>cnode 论坛的 egg 实现版本， 后端服务由原来的 Express 切换为 Node. 在部署过程中主要安装如下软件。</p><ul><li>redis</li><li>mongoldb</li><li>nvm</li><li>node</li></ul><h2 id="调试模式不发送邮件-多种原因导致"><a href="#调试模式不发送邮件-多种原因导致" class="headerlink" title="调试模式不发送邮件(多种原因导致)"></a>调试模式不发送邮件(多种原因导致)</h2><ul><li>发送邮件被屏蔽</li><li>调试模式下发送邮件直接返回</li><li>163 需要授权码登录</li><li>激活回调地址 config.host 配置</li></ul><p>可以直接修改数据库为激活模式登录</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
